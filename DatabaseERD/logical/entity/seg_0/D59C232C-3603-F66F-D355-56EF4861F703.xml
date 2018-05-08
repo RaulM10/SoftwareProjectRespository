@@ -1,0 +1,62 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="D59C232C-3603-F66F-D355-56EF4861F703" name="ORDER- PRODUCT">
+<createdBy>b42079</createdBy>
+<createdTime>2018-04-23 09:30:57 UTC</createdTime>
+<ownerDesignName>DatabaseERD</ownerDesignName>
+<engineerTo>
+<item key="F786A4E8-575F-E2B4-6C78-16106FB67685" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="Order_ID" id="01667AD8-08F6-D23F-EF9A-2D8F97DBE003">
+<createdBy>b42079</createdBy>
+<createdTime>2018-04-23 09:32:28 UTC</createdTime>
+<generatorID>06B3B9A2-8AAB-5112-68A5-DE1A2D27B03D</generatorID>
+<ownerDesignName>DatabaseERD</ownerDesignName>
+<engineerTo>
+<item key="F786A4E8-575F-E2B4-6C78-16106FB67685" value="true"/>
+</engineerTo>
+<referedAttribute>24A99FC3-2B2A-1A99-31F6-54F90EA44FD1</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Product_ID" id="032241F3-C261-0FB0-00F8-A2E2B16E4F18">
+<createdBy>b42079</createdBy>
+<createdTime>2018-04-23 09:32:46 UTC</createdTime>
+<generatorID>69782378-D51A-FB1F-C972-9BABE3FB756A</generatorID>
+<ownerDesignName>DatabaseERD</ownerDesignName>
+<engineerTo>
+<item key="F786A4E8-575F-E2B4-6C78-16106FB67685" value="true"/>
+</engineerTo>
+<referedAttribute>D786E983-1C7E-0237-6CD5-EFDA28497268</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="2F03A7E6-A099-ABD8-BCBA-CFAE09D5A12A" name="ORDER- PRODUCT PK">
+<createdBy>b42079</createdBy>
+<createdTime>2018-04-23 09:32:28 UTC</createdTime>
+<ownerDesignName>DatabaseERD</ownerDesignName>
+<engineerTo>
+<item key="F786A4E8-575F-E2B4-6C78-16106FB67685" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>01667AD8-08F6-D23F-EF9A-2D8F97DBE003</attributeRef>
+<attributeRef>032241F3-C261-0FB0-00F8-A2E2B16E4F18</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

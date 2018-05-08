@@ -1,0 +1,59 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="E54C4D63-376A-CDE6-7DFB-5E7C7FB63DC5" name="ORDER">
+<createdBy>b42079</createdBy>
+<createdTime>2018-04-12 06:38:17 UTC</createdTime>
+<ownerDesignName>DatabaseERD</ownerDesignName>
+<engineerTo>
+<item key="F786A4E8-575F-E2B4-6C78-16106FB67685" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="Order_ID" id="24A99FC3-2B2A-1A99-31F6-54F90EA44FD1">
+<createdBy>b42079</createdBy>
+<createdTime>2018-04-12 06:38:46 UTC</createdTime>
+<ownerDesignName>DatabaseERD</ownerDesignName>
+<engineerTo>
+<item key="F786A4E8-575F-E2B4-6C78-16106FB67685" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Account_ID" id="69B79229-83B3-E0C9-1757-0807F5A5E3BE">
+<createdBy>b42079</createdBy>
+<createdTime>2018-04-12 06:39:30 UTC</createdTime>
+<generatorID>E32F6DBC-8F75-CE9A-2DA8-C3447948E3BE</generatorID>
+<ownerDesignName>DatabaseERD</ownerDesignName>
+<engineerTo>
+<item key="F786A4E8-575F-E2B4-6C78-16106FB67685" value="true"/>
+</engineerTo>
+<referedAttribute>BC3FE82A-5A61-5820-641E-A7F272BD245E</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="0CACE890-EE67-5899-F712-988ED6A8D9D3" name="Order PK">
+<createdBy>b42079</createdBy>
+<createdTime>2018-04-12 06:38:50 UTC</createdTime>
+<ownerDesignName>DatabaseERD</ownerDesignName>
+<engineerTo>
+<item key="F786A4E8-575F-E2B4-6C78-16106FB67685" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>24A99FC3-2B2A-1A99-31F6-54F90EA44FD1</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>
