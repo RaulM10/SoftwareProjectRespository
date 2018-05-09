@@ -1,0 +1,171 @@
+#MainContent{
+    width: 100%;
+}
+
+#LoggedInUsername{
+    color:  #ffffff;
+}
+
+
+#MainLogo{
+    margin-left: 200px;
+}
+
+.ContactPhoneButton, .FeedbackButton, .MyCartButton, .HelpButton, .LogOutButton, .ImagesButton, .ProductsButton{
+    position: relative;
+    display: inline-block;
+}
+
+.ProductsButton{
+    left: 75px;
+}
+
+.HelpButton{
+    left: 150px;
+}
+
+.ContactPhoneButton{
+    left: 225px;
+}
+
+.FeedbackButton{
+    left: 300px;
+}
+
+.ImagesButton{
+    left: 375px;
+}
+
+.MyCartButton{
+    left: 450px;
+}
+
+.LogOutButton{
+    left: 525px;
+}
+
+.ContactPhoneText, .LogOutText, .ImagesText, .ProductsText{
+    visibility: hidden;
+    width: 120px;
+    background-color: #ffffff;
+    text-align: center;
+    padding: 5px;
+    border-radius: 6px;
+    position: absolute;
+    bottom: 100%;
+    left: -50%;
+}
+
+.FeedbackText, .HelpText, .MyCartText{
+    visibility: hidden;
+    width: 120px;
+    background-color: #ffffff;
+    text-align: center;
+    padding: 5px;
+    border-radius: 6px;
+    position: absolute;
+    top: 100%;
+    left: -50%;
+}
+
+.ContactPhoneText::after, .ImagesText::after, .LogOutText::after, .ProductsText::after{
+    content: " ";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #ffffff transparent  transparent transparent;
+}
+
+.FeedbackText::after, .HelpText::after, .MyCartText::after{
+    content: " ";
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent transparent #ffffff transparent;
+}
+
+.ContactPhoneButton:hover .ContactPhoneText, .FeedbackButton:hover .FeedbackText, .MyCartButton:hover .MyCartText, .HelpButton:hover .HelpText,
+.LogOutButton:hover .LogOutText,
+.ImagesButton:hover .ImagesText,
+.ProductsButton:hover .ProductsText{
+    visibility: visible;   
+}
+
+#RightSide{
+    background-color: #202020; 
+    height: 16000px;
+    width: 20%;
+    float: right;
+}
+
+#LeftSide{
+    background-color: #202020;  
+    height: 16000px;
+    width: 20%;
+    float: left;
+    color: #ffffff;
+}
+a{
+    color: #ffffff;
+}
+
+a:hover{
+    color: #ffffff;
+}
+
+#LeftSide h4{
+    text-align: center;
+    color: #ffffff;
+    margin: 30px 0
+}
+
+#JuventusLink img, #BayernMunichLink img, #PSGLink img, #ManCityLink img, #RealMadridLink img{
+    width: 50px;
+    height: 50px;
+    background-color: #ffffff;
+    margin: 25px 10px;
+}
+
+#ProductInfo{
+    text-align: center;
+}
+
+
+#TeamTitle{
+    font-size: 30px;
+    text-align: center;
+    margin-top: 15px;
+}
+
+#Catalogue{
+    width: 60%;
+    display: inline-block;
+}
+
+#HomeDiv{
+    width: 100%;
+}
+
+#Image{
+    width: 25%;
+    margin: 0 25px;
+    border: 1px solid;
+    float: left;
+}
+.clear{
+    clear: left;
+}
+
+#Jersey, #Shorts, #Socks{
+    margin: 15px 0;
+}
+
+#HomeTitle, #AwayTitle, #ThirdTitle{
+    margin-left: 25px;
+}
