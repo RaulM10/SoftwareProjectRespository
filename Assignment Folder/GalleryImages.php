@@ -1,6 +1,13 @@
 <?php
     session_start();
-    
+    echo "<meta charset='utf-8'>
+          <meta name='viewport' content='width=device-width', 'initial-scale = 1.0'>
+          <!-- jQuery -->
+          <script src='http://code.jquery.com/jquery-1.10.2.min.js'></script>
+          <!-- Fotorama -->
+          <link href='CSS/fotorama.css' rel='stylesheet'>
+          <script src='Scripts/fotorama.js'></script>";
+    include "header.php";
 ?>
 <!DOCTYPE html>
 <html lang = "en">

@@ -54,16 +54,21 @@
             $QuantityBool = true;
         }
         if($SizeBool && $QuantityBool){
-            
-            $UpdateQuery = "UPDATE order_product SET Quantity = $Quantity, Size_Id = $Size, Price =  WHERE Order_Id = $ChosenOrder AND Product_Id = $Id";
-            $QueryResult = mysqli_query($link, $UpdateQuery);
-            if(mysqli_affected_rows($link) == 1){
-                header("Location: MyCart.php");
+            $GetProduct = "SELECT * FROM product WHERE Product_Id  = $Id";
+            $GetProductResult = mysqli_query($link, $GetProduct);
+            while($Product = mysqli_fetch_assoc($GetProductResult)){
+                $TotalPrice = $Product["Price"] * $Quantity;
+                $UpdateQuery = "UPDATE order_product SET Quantity = $Quantity, Size_Id = $Size, Price = $TotalPrice WHERE Order_Id = $ChosenOrder AND Product_Id = $Id";
+                $QueryResult = mysqli_query($link, $UpdateQuery);
+                if(mysqli_affected_rows($link) == 1){
+                    header("Location: MyCart.php");
+                }
+                else{
+
+                }
             }
-            else{
                 
             }
         }
-    }
     
 ?>

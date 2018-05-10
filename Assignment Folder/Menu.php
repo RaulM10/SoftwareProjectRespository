@@ -2,7 +2,7 @@
     session_start();
     include "connect.php";
     include "LocationButtons.php";
-    function AddToMyCart($Product_Id, $Size_Id, $Quantity, $Price){
+    function AddToMyCart($Product_Id, $Size_Id, $Quantity, $Price, $ButtonName){
         include "connect.php";
         $ChosenAccount = $ChosenOrder = "";
         $Username = $_SESSION["Username"];
@@ -22,17 +22,27 @@
         $InsertQuery = "INSERT INTO order_product(Order_Id, Product_Id, Size_Id, Quantity, Price) VALUES('$ChosenOrder', '$Product_Id', '$Size_Id', '$Quantity', '$TotalPrice')";
         $InsertResult = mysqli_query($link, $InsertQuery) ;
         if(mysqli_affected_rows($link) == 1){
-            echo "Banana";
+            echo "<style>
+                    #$ButtonName{
+                        background-color: #00ff00;
+                    }
+                </style>";
         }
         else{
-            echo "Kiwi";
+            echo "<style>
+                    #$ButtonName{
+                        background-color:  #ff0000;
+                    }
+                </style>";
         }
     }
-    if(isset($_POST["JuveHomeShirt"])){
+
+    function ValidateToAddToMyCart($SelectName, $QuantityName, $ProductId){
+        include "connect.php";
         $Price = "";
         $SizeBool = $QuantityBool = false;
-        $Size = $_POST["JuveHomeShirtSelect"];
-        $Quantity = $_POST["JuveHomeShirtQuantity"];
+        $Size = $_POST["$SelectName"];
+        $Quantity = $_POST["$QuantityName"];
         
         if($Size == 0){}
         else{
@@ -43,763 +53,286 @@
             $QuantityBool = true;
         }
         if($SizeBool && $QuantityBool){
-            $GetPriceQuery = "SELECT Price FROM product WHERE Product_Id = 1";
+            $GetPriceQuery = "SELECT Price FROM product WHERE Product_Id = $ProductId";
             $GetPriceResult = mysqli_query($link, $GetPriceQuery);
             while($GetPrice = mysqli_fetch_assoc($GetPriceResult)){
                 $Price = $GetPrice["Price"];
             }
-            
-            AddToMyCart(1, $Size, $Quantity, $Price);
+            $ButtonName = "JuveHomeShirt";
+            AddToMyCart($ProductId, $Size, $Quantity, $Price, $ButtonName);
         }
-        
     }
 
+    if(isset($_POST["JuveHomeShirt"])){
+        $SelectName = "JuveHomeShirtSelect";
+        $QuantityName = "JuveHomeShirtQuantity";
+        ValidateToAddToMyCart($SelectName, $QuantityName, 1);
+    }
+
+    
+
     if(isset($_POST["JuveHomeShorts"])){
-        $Size = $_POST["JuveHomeShortsSelect"];
-        $Quantity = $_POST["JuveHomeShortsQuantity"];
-        
-        if($Size == 0){}
-        else{
-            $SizeBool = true;
-        }
-        if($Quantity <= 0){}
-        else{
-            $QuantityBool = true;
-        }
-        if($SizeBool && $QuantityBool){
-            AddToMyCart(2, $Size, $Quantity);
-        }
+        $SelectName = "JuveHomeShortsSelect";
+        $QuantityName = "JuveHomeShortsQuantity";
+        ValidateToAddToMyCart($SelectName, $QuantityName, 2);
     }
 
     if(isset($_POST["JuveHomeSocks"])){
-        $Size = $_POST["JuveHomeSocksSelect"];
-        $Quantity = $_POST["JuveHomeSocksQuantity"];
-        
-        if($Size == 0){}
-        else{
-            $SizeBool = true;
-        }
-        if($Quantity <= 0){}
-        else{
-            $QuantityBool = true;
-        }
-        if($SizeBool && $QuantityBool){
-            AddToMyCart(3, $Size, $Quantity);
-        }
+        $SelectName = "JuveHomeSocksSelect";
+        $QuantityName = "JuveHomeSocksQuantity";
+        ValidateToAddToMyCart($SelectName, $QuantityName, 3);
     }
 
     if(isset($_POST["JuveAwayShirt"])){
-        $Size = $_POST["JuveAwayShirtSelect"];
-        $Quantity = $_POST["JuveAwayShirtQuantity"];
-        
-        if($Size == 0){}
-        else{
-            $SizeBool = true;
-        }
-        if($Quantity <= 0){}
-        else{
-            $QuantityBool = true;
-        }
-        if($SizeBool && $QuantityBool){
-            AddToMyCart(4, $Size, $Quantity);
-        }
+        $SelectName = "JuveAwayShirtSelect";
+        $QuantityName = "JuveAwayShirtQuantity";
+        ValidateToAddToMyCart($SelectName, $QuantityName, 4);
     }
 
     if(isset($_POST["JuveAwayShorts"])){
-        $Size = $_POST["JuveAwayShortsSelect"];
-        $Quantity = $_POST["JuveAwayShortsQuantity"];
-        
-        if($Size == 0){}
-        else{
-            $SizeBool = true;
-        }
-        if($Quantity <= 0){}
-        else{
-            $QuantityBool = true;
-        }
-        if($SizeBool && $QuantityBool){
-            AddToMyCart(5, $Size, $Quantity);
-        }
+        $SelectName = "JuveAwayShortsSelect";
+        $QuantityName = "JuveAwayShortsQuantity";
+        ValidateToAddToMyCart($SelectName, $QuantityName, 5);
     }
 
     if(isset($_POST["JuveAwaySocks"])){
-        $Size = $_POST["JuveAwaySocksSelect"];
-        $Quantity = $_POST["JuveAwaySocksQuantity"];
-        
-        if($Size == 0){}
-        else{
-            $SizeBool = true;
-        }
-        if($Quantity <= 0){}
-        else{
-            $QuantityBool = true;
-        }
-        if($SizeBool && $QuantityBool){
-            AddToMyCart(6, $Size, $Quantity);
-        }
+        $SelectName = "JuveAwaySocksSelect";
+        $QuantityName = "JuveAwaySocksQuantity";
+        ValidateToAddToMyCart($SelectName, $QuantityName, 6);
     }
 
     if(isset($_POST["Juve3Shirt"])){
-        $Size = $_POST["Juve3ShirtSelect"];
-        $Quantity = $_POST["Juve3ShirtQuantity"];
-        
-        if($Size == 0){}
-        else{
-            $SizeBool = true;
-        }
-        if($Quantity <= 0){}
-        else{
-            $QuantityBool = true;
-        }
-        if($SizeBool && $QuantityBool){
-            AddToMyCart(7, $Size, $Quantity);
-        }
+        $SelectName = "Juve3ShirtSelect";
+        $QuantityName = "Juve3ShirtQuantity";
+        ValidateToAddToMyCart($SelectName, $QuantityName, 7);
     }
 
     if(isset($_POST["Juve3Shorts"])){
-        $Size = $_POST["Juve3ShortsSelect"];
-        $Quantity = $_POST["Juve3ShortsQuantity"];
-        
-        if($Size == 0){}
-        else{
-            $SizeBool = true;
-        }
-        if($Quantity <= 0){}
-        else{
-            $QuantityBool = true;
-        }
-        if($SizeBool && $QuantityBool){
-            AddToMyCart(8, $Size, $Quantity);
-        }
+        $SelectName = "Juve3ShortsSelect";
+        $QuantityName = "Juve3ShortsQuantity";
+        ValidateToAddToMyCart($SelectName, $QuantityName, 8);
     }
 
     if(isset($_POST["Juve3Socks"])){
-        $Size = $_POST["Juve3SocksSelect"];
-        $Quantity = $_POST["Juve3SocksQuantity"];
-        
-        if($Size == 0){}
-        else{
-            $SizeBool = true;
-        }
-        if($Quantity <= 0){}
-        else{
-            $QuantityBool = true;
-        }
-        if($SizeBool && $QuantityBool){
-            AddToMyCart(9, $Size, $Quantity);
-        }
+        $SelectName = "Juve3SocksSelect";
+        $QuantityName = "Juve3SocksQuantity";
+        ValidateToAddToMyCart($SelectName, $QuantityName, 9);
     }
 
     if(isset($_POST["BayernHomeShirt"])){
-       $Size = $_POST["BayernHomeShirtSelect"];
-        $Quantity = $_POST["BayernHomeShirtQuantity"];
-        
-        if($Size == 0){}
-        else{
-            $SizeBool = true;
-        }
-        if($Quantity <= 0){}
-        else{
-            $QuantityBool = true;
-        }
-        if($SizeBool && $QuantityBool){
-            AddToMyCart(10, $Size, $Quantity);
-        }
+        $SelectName = "BayernHomeShirtSelect";
+        $QuantityName = "BayernHomeShirtQuantity";
+        ValidateToAddToMyCart($SelectName, $QuantityName, 10);
     }
 
     if(isset($_POST["BayernHomeShorts"])){
-        $Size = $_POST["BayernHomeShortsSelect"];
-        $Quantity = $_POST["BayernHomeShortsQuantity"];
-        
-        if($Size == 0){}
-        else{
-            $SizeBool = true;
-        }
-        if($Quantity <= 0){}
-        else{
-            $QuantityBool = true;
-        }
-        if($SizeBool && $QuantityBool){
-            AddToMyCart(11, $Size, $Quantity);
-        }
+        $SelectName = "BayernHomeShortsSelect";
+        $QuantityName = "BayernHomeShortsQuantity";
+        ValidateToAddToMyCart($SelectName, $QuantityName, 11);
     }
 
     if(isset($_POST["BayernHomeSocks"])){
-        $Size = $_POST["BayernHomeSocksSelect"];
-        $Quantity = $_POST["BayernHomeSocksQuantity"];
-        
-        if($Size == 0){}
-        else{
-            $SizeBool = true;
-        }
-        if($Quantity <= 0){}
-        else{
-            $QuantityBool = true;
-        }
-        if($SizeBool && $QuantityBool){
-            AddToMyCart(12, $Size, $Quantity);
-        }
+        $SelectName = "BayernHomeSocksSelect";
+        $QuantityName = "BayernHomeSocksQuantity";
+        ValidateToAddToMyCart($SelectName, $QuantityName, 12);
     }
 
     if(isset($_POST["BayernAwayShirt"])){
-        $Size = $_POST["BayernAwayShirtSelect"];
-        $Quantity = $_POST["BayernAwayShirtQuantity"];
-        
-        if($Size == 0){}
-        else{
-            $SizeBool = true;
-        }
-        if($Quantity <= 0){}
-        else{
-            $QuantityBool = true;
-        }
-        if($SizeBool && $QuantityBool){
-            AddToMyCart(13, $Size, $Quantity);
-        }
+        $SelectName = "BayernAwayShirtSelect";
+        $QuantityName = "BayernAwayShirtQuantity";
+        ValidateToAddToMyCart($SelectName, $QuantityName, 13);
     }
 
     if(isset($_POST["BayernAwayShorts"])){
-        $Size = $_POST["BayernAwayShortsSelect"];
-        $Quantity = $_POST["BayernAwayShortsQuantity"];
-        
-        if($Size == 0){}
-        else{
-            $SizeBool = true;
-        }
-        if($Quantity <= 0){}
-        else{
-            $QuantityBool = true;
-        }
-        if($SizeBool && $QuantityBool){
-            AddToMyCart(14, $Size, $Quantity);
-        }
+        $SelectName = "BayernAwayShortsSelect";
+        $QuantityName = "BayernAwayShortsQuantity";
+        ValidateToAddToMyCart($SelectName, $QuantityName, 14);
     }
 
     if(isset($_POST["BayernAwaySocks"])){
-        $Size = $_POST["BayernAwaySocksSelect"];
-        $Quantity = $_POST["BayernAwaySocksQuantity"];
-        
-        if($Size == 0){}
-        else{
-            $SizeBool = true;
-        }
-        if($Quantity <= 0){}
-        else{
-            $QuantityBool = true;
-        }
-        if($SizeBool && $QuantityBool){
-            AddToMyCart(15, $Size, $Quantity);
-        }
+        $SelectName = "BayernAwaySocksSelect";
+        $QuantityName = "BayernAwaySocksQuantity";
+        ValidateToAddToMyCart($SelectName, $QuantityName, 15);
     }
 
     if(isset($_POST["Bayern3Shirt"])){
-        $Size = $_POST["Bayern3ShirtSelect"];
-        $Quantity = $_POST["Bayern3ShirtQuantity"];
-        
-        if($Size == 0){}
-        else{
-            $SizeBool = true;
-        }
-        if($Quantity <= 0){}
-        else{
-            $QuantityBool = true;
-        }
-        if($SizeBool && $QuantityBool){
-            AddToMyCart(16, $Size, $Quantity);
-        }
+        $SelectName = "Bayern3ShirtSelect";
+        $QuantityName = "Bayern3ShirtQuantity";
+        ValidateToAddToMyCart($SelectName, $QuantityName, 16);
     }
 
     if(isset($_POST["Bayern3Shorts"])){
-        $Size = $_POST["Bayern3ShortsSelect"];
-        $Quantity = $_POST["Bayern3ShortsQuantity"];
-        
-        if($Size == 0){}
-        else{
-            $SizeBool = true;
-        }
-        if($Quantity <= 0){}
-        else{
-            $QuantityBool = true;
-        }
-        if($SizeBool && $QuantityBool){
-            AddToMyCart(17, $Size, $Quantity);
-        }
+        $SelectName = "Bayern3ShortsSelect";
+        $QuantityName = "Bayern3ShortsQuantity";
+        ValidateToAddToMyCart($SelectName, $QuantityName, 17);
     }
 
     if(isset($_POST["Bayern3Socks"])){
-        $Size = $_POST["Bayern3SocksSelect"];
-        $Quantity = $_POST["Bayern3SocksQuantity"];
-        
-        if($Size == 0){}
-        else{
-            $SizeBool = true;
-        }
-        if($Quantity <= 0){}
-        else{
-            $QuantityBool = true;
-        }
-        if($SizeBool && $QuantityBool){
-            AddToMyCart(18, $Size, $Quantity);
-        }
+        $SelectName = "Bayern3SocksSelect";
+        $QuantityName = "Bayern3SocksQuantity";
+        ValidateToAddToMyCart($SelectName, $QuantityName, 18);
     }
 
     if(isset($_POST["PSGHomeShirt"])){
-        $Size = $_POST["PSGHomeShirtSelect"];
-        $Quantity = $_POST["PSGHomeShirtQuantity"];
-        
-        if($Size == 0){}
-        else{
-            $SizeBool = true;
-        }
-        if($Quantity <= 0){}
-        else{
-            $QuantityBool = true;
-        }
-        if($SizeBool && $QuantityBool){
-            AddToMyCart(19, $Size, $Quantity);
-        }
+        $SelectName = "PSGHomeShirtSelect";
+        $QuantityName = "PSGHomeShirtQuantity";
+        ValidateToAddToMyCart($SelectName, $QuantityName, 19);
     }
 
     if(isset($_POST["PSGHomeShorts"])){
-        $Size = $_POST["PSGHomeShortsSelect"];
-        $Quantity = $_POST["PSGHomeShortsQuantity"];
-        
-        if($Size == 0){}
-        else{
-            $SizeBool = true;
-        }
-        if($Quantity <= 0){}
-        else{
-            $QuantityBool = true;
-        }
-        if($SizeBool && $QuantityBool){
-            AddToMyCart(20, $Size, $Quantity);
-        }
+        $SelectName = "PSGHomeShortsSelect";
+        $QuantityName = "PSGHomeShortsQuantity";
+        ValidateToAddToMyCart($SelectName, $QuantityName, 20);    
     }
 
     if(isset($_POST["PSGHomeSocks"])){
-        $Size = $_POST["PSGHomeSocksSelect"];
-        $Quantity = $_POST["PSGHomeSocksQuantity"];
-        
-        if($Size == 0){}
-        else{
-            $SizeBool = true;
-        }
-        if($Quantity <= 0){}
-        else{
-            $QuantityBool = true;
-        }
-        if($SizeBool && $QuantityBool){
-            AddToMyCart(21, $Size, $Quantity);
-        }
+        $SelectName = "PSGHomeSocksSelect";
+        $QuantityName = "PSGHomeSocksQuantity";
+        ValidateToAddToMyCart($SelectName, $QuantityName, 21);
     }
 
     if(isset($_POST["PSGAwayShirt"])){
-        $Size = $_POST["PSGAwayShirtSelect"];
-        $Quantity = $_POST["PSGAwayShirtQuantity"];
-        
-        if($Size == 0){}
-        else{
-            $SizeBool = true;
-        }
-        if($Quantity <= 0){}
-        else{
-            $QuantityBool = true;
-        }
-        if($SizeBool && $QuantityBool){
-            AddToMyCart(22, $Size, $Quantity);
-        }
+        $SelectName = "PSGAwayShirtSelect";
+        $QuantityName = "PSGAwayShirtQuantity";
+        ValidateToAddToMyCart($SelectName, $QuantityName, 22);
     }
 
     if(isset($_POST["PSGAwayShorts"])){
-        $Size = $_POST["PSGAwayShortsSelect"];
-        $Quantity = $_POST["PSGAwayShortsQuantity"];
-        
-        if($Size == 0){}
-        else{
-            $SizeBool = true;
-        }
-        if($Quantity <= 0){}
-        else{
-            $QuantityBool = true;
-        }
-        if($SizeBool && $QuantityBool){
-            AddToMyCart(23, $Size, $Quantity);
-        }
+        $SelectName = "PSGAwayShortsSelect";
+        $QuantityName = "PSGAwayShortsQuantity";
+        ValidateToAddToMyCart($SelectName, $QuantityName, 23);
     }
 
     if(isset($_POST["PSGAwaySocks"])){
-        $Size = $_POST["PSGAwaySocksSelect"];
-        $Quantity = $_POST["PSGAwaySocksQuantity"];
-        
-        if($Size == 0){}
-        else{
-            $SizeBool = true;
-        }
-        if($Quantity <= 0){}
-        else{
-            $QuantityBool = true;
-        }
-        if($SizeBool && $QuantityBool){
-            AddToMyCart(24, $Size, $Quantity);
-        }
+        $SelectName = "PSGAwaySocksSelect";
+        $QuantityName = "PSGAwaySocksQuantity";
+        ValidateToAddToMyCart($SelectName, $QuantityName, 24);
     }
 
     if(isset($_POST["PSG3Shirt"])){
-        $Size = $_POST["PSG3ShirtSelect"];
-        $Quantity = $_POST["PSG3ShirtQuantity"];
-        
-        if($Size == 0){}
-        else{
-            $SizeBool = true;
-        }
-        if($Quantity <= 0){}
-        else{
-            $QuantityBool = true;
-        }
-        if($SizeBool && $QuantityBool){
-            AddToMyCart(25, $Size, $Quantity);
-        }
+        $SelectName = "PSG3ShirtSelect";
+        $QuantityName = "PSG3ShirtQuantity";
+        ValidateToAddToMyCart($SelectName, $QuantityName, 25);
     }
 
     if(isset($_POST["PSG3Shorts"])){
-        $Size = $_POST["PSG3ShortsSelect"];
-        $Quantity = $_POST["PSG3ShortsQuantity"];
-        
-        if($Size == 0){}
-        else{
-            $SizeBool = true;
-        }
-        if($Quantity <= 0){}
-        else{
-            $QuantityBool = true;
-        }
-        if($SizeBool && $QuantityBool){
-            AddToMyCart(26, $Size, $Quantity);
-        }
+        $SelectName = "PSG3ShortsSelect";
+        $QuantityName = "PSG3ShortsQuantity";
+        ValidateToAddToMyCart($SelectName, $QuantityName, 26);
     }
 
     if(isset($_POST["PSG3Socks"])){
-        $Size = $_POST["PSG3SocksSelect"];
-        $Quantity = $_POST["PSG3SocksQuantity"];
-        
-        if($Size == 0){}
-        else{
-            $SizeBool = true;
-        }
-        if($Quantity <= 0){}
-        else{
-            $QuantityBool = true;
-        }
-        if($SizeBool && $QuantityBool){
-            AddToMyCart(27, $Size, $Quantity);
-        }
+        $SelectName = "PSG3SocksSelect";
+        $QuantityName = "PSG3SocksQuantity";
+        ValidateToAddToMyCart($SelectName, $QuantityName, 27);
     }
 
     if(isset($_POST["ManCHomeShirt"])){
-        $Size = $_POST["ManCHomeShirtSelect"];
-        $Quantity = $_POST["ManCHomeShirtQuantity"];
-        
-        if($Size == 0){}
-        else{
-            $SizeBool = true;
-        }
-        if($Quantity <= 0){}
-        else{
-            $QuantityBool = true;
-        }
-        if($SizeBool && $QuantityBool){
-            AddToMyCart(28, $Size, $Quantity);
-        }
+        $SelectName = "ManCHomeShirtSelect";
+        $QuantityName = "ManCHomeShirtQuantity";
+        ValidateToAddToMyCart($SelectName, $QuantityName, 28);
     }
 
     if(isset($_POST["ManCHomeShorts"])){
-        $Size = $_POST["ManCHomeShortsSelect"];
-        $Quantity = $_POST["ManCHomeShortsQuantity"];
-        
-        if($Size == 0){}
-        else{
-            $SizeBool = true;
-        }
-        if($Quantity <= 0){}
-        else{
-            $QuantityBool = true;
-        }
-        if($SizeBool && $QuantityBool){
-            AddToMyCart(29, $Size, $Quantity);
-        }
+        $SelectName = "ManCHomeShortsSelect";
+        $QuantityName = "ManCHomeShortsQuantity";
+        ValidateToAddToMyCart($SelectName, $QuantityName, 29);
     }
 
     if(isset($_POST["ManCHomeSocks"])){
-        $Size = $_POST["ManCHomeSocksSelect"];
-        $Quantity = $_POST["ManCHomeSocksQuantity"];
-        
-        if($Size == 0){}
-        else{
-            $SizeBool = true;
-        }
-        if($Quantity <= 0){}
-        else{
-            $QuantityBool = true;
-        }
-        if($SizeBool && $QuantityBool){
-            AddToMyCart(30, $Size, $Quantity);
-        }
+        $SelectName = "ManCHomeSocksSelect";
+        $QuantityName = "ManCHomeSocksQuantity";
+        ValidateToAddToMyCart($SelectName, $QuantityName, 30);
     }
 
     if(isset($_POST["ManCAwayShirt"])){
-        $Size = $_POST["ManCAwayShirtSelect"];
-        $Quantity = $_POST["ManCAwayShirtQuantity"];
-        
-        if($Size == 0){}
-        else{
-            $SizeBool = true;
-        }
-        if($Quantity <= 0){}
-        else{
-            $QuantityBool = true;
-        }
-        if($SizeBool && $QuantityBool){
-            AddToMyCart(31, $Size, $Quantity);
-        }
+        $SelectName = "ManCAwayShirtSelect";
+        $QuantityName = "ManCAwayShirtQuantity";
+        ValidateToAddToMyCart($SelectName, $QuantityName, 31);
     }
 
     if(isset($_POST["ManCAwayShorts"])){
-        $Size = $_POST["ManCAwayShortsSelect"];
-        $Quantity = $_POST["ManCAwayShortsQuantity"];
-        
-        if($Size == 0){}
-        else{
-            $SizeBool = true;
-        }
-        if($Quantity <= 0){}
-        else{
-            $QuantityBool = true;
-        }
-        if($SizeBool && $QuantityBool){
-            AddToMyCart(32, $Size, $Quantity);
-        }
+        $SelectName = "ManCAwayShortsSelect";
+        $QuantityName = "ManCAwayShortsQuantity";
+        ValidateToAddToMyCart($SelectName, $QuantityName, 32);
     }
 
     if(isset($_POST["ManCAwaySocks"])){
-        $Size = $_POST["ManCAwaySocksSelect"];
-        $Quantity = $_POST["ManCAwaySocksQuantity"];
-        
-        if($Size == 0){}
-        else{
-            $SizeBool = true;
-        }
-        if($Quantity <= 0){}
-        else{
-            $QuantityBool = true;
-        }
-        if($SizeBool && $QuantityBool){
-            AddToMyCart(33, $Size, $Quantity);
-        }
+        $SelectName = "ManCAwaySocksSelect";
+        $QuantityName = "ManCAwaySocksQuantity";
+        ValidateToAddToMyCart($SelectName, $QuantityName, 33);
     }
 
     if(isset($_POST["ManC3Shirt"])){
-        $Size = $_POST["ManC3ShirtSelect"];
-        $Quantity = $_POST["ManC3ShirtQuantity"];
-        
-        if($Size == 0){}
-        else{
-            $SizeBool = true;
-        }
-        if($Quantity <= 0){}
-        else{
-            $QuantityBool = true;
-        }
-        if($SizeBool && $QuantityBool){
-            AddToMyCart(34, $Size, $Quantity);
-        }
+        $SelectName = "ManC3ShirtSelect";
+        $QuantityName = "ManC3ShirtQuantity";
+        ValidateToAddToMyCart($SelectName, $QuantityName, 34);
     }
 
     if(isset($_POST["ManC3Shorts"])){
-        $Size = $_POST["ManC3ShortsSelect"];
-        $Quantity = $_POST["ManC3ShortsQuantity"];
-        
-        if($Size == 0){}
-        else{
-            $SizeBool = true;
-        }
-        if($Quantity <= 0){}
-        else{
-            $QuantityBool = true;
-        }
-        if($SizeBool && $QuantityBool){
-            AddToMyCart(35, $Size, $Quantity);
-        }
+        $SelectName = "ManC3ShortsSelect";
+        $QuantityName = "ManC3ShortsQuantity";
+        ValidateToAddToMyCart($SelectName, $QuantityName, 35);
     }
 
     if(isset($_POST["ManC3Socks"])){
-        $Size = $_POST["ManC3SocksSelect"];
-        $Quantity = $_POST["ManC3SocksQuantity"];
-        
-        if($Size == 0){}
-        else{
-            $SizeBool = true;
-        }
-        if($Quantity <= 0){}
-        else{
-            $QuantityBool = true;
-        }
-        if($SizeBool && $QuantityBool){
-            AddToMyCart(36, $Size, $Quantity);
-        }
+        $SelectName = "ManC3SocksSelect";
+        $QuantityName = "ManC3SocksQuantity";
+        ValidateToAddToMyCart($SelectName, $QuantityName, 36);
     }
 
     if(isset($_POST["RealHomeShirt"])){
-        $Size = $_POST["RealHomeShirtSelect"];
-        $Quantity = $_POST["RealHomeShirtQuantity"];
-        
-        if($Size == 0){}
-        else{
-            $SizeBool = true;
-        }
-        if($Quantity <= 0){}
-        else{
-            $QuantityBool = true;
-        }
-        if($SizeBool && $QuantityBool){
-            AddToMyCart(37, $Size, $Quantity);
-        }
+        $SelectName = "RealHomeShirtSelect";
+        $QuantityName = "RealHomeShirtQuantity";
+        ValidateToAddToMyCart($SelectName, $QuantityName, 37);
     }
 
     if(isset($_POST["RealHomeShorts"])){
-        $Size = $_POST["RealHomeShortsSelect"];
-        $Quantity = $_POST["RealHomeShortsQuantity"];
-        
-        if($Size == 0){}
-        else{
-            $SizeBool = true;
-        }
-        if($Quantity <= 0){}
-        else{
-            $QuantityBool = true;
-        }
-        if($SizeBool && $QuantityBool){
-            AddToMyCart(38, $Size, $Quantity);
-        }
+        $SelectName = "RealHomeShortsSelect";
+        $QuantityName = "RealHomeShortsQuantity";
+        ValidateToAddToMyCart($SelectName, $QuantityName, 38);
     }
 
     if(isset($_POST["RealHomeSocks"])){
-        $Size = $_POST["RealHomeSocksSelect"];
-        $Quantity = $_POST["RealHomeSocksQuantity"];
-        
-        if($Size == 0){}
-        else{
-            $SizeBool = true;
-        }
-        if($Quantity <= 0){}
-        else{
-            $QuantityBool = true;
-        }
-        if($SizeBool && $QuantityBool){
-            AddToMyCart(39, $Size, $Quantity);
-        }
+        $SelectName = "RealHomeSocksSelect";
+        $QuantityName = "RealHomeSocksQuantity";
+        ValidateToAddToMyCart($SelectName, $QuantityName, 39);
     }
 
     if(isset($_POST["RealAwayShirt"])){
-        $Size = $_POST["RealAwayShirtSelect"];
-        $Quantity = $_POST["RealAwayShirtQuantity"];
-        
-        if($Size == 0){}
-        else{
-            $SizeBool = true;
-        }
-        if($Quantity <= 0){}
-        else{
-            $QuantityBool = true;
-        }
-        if($SizeBool && $QuantityBool){
-            AddToMyCart(40, $Size, $Quantity);
-        }
+        $SelectName = "RealAwayShirtSelect";
+        $QuantityName = "RealAwayShirtQuantity";
+        ValidateToAddToMyCart($SelectName, $QuantityName, 40);
     }
 
     if(isset($_POST["RealAwayShorts"])){
-        $Size = $_POST["RealAwayShortsSelect"];
-        $Quantity = $_POST["RealAwayShortsQuantity"];
-        
-        if($Size == 0){}
-        else{
-            $SizeBool = true;
-        }
-        if($Quantity <= 0){}
-        else{
-            $QuantityBool = true;
-        }
-        if($SizeBool && $QuantityBool){
-            AddToMyCart(41, $Size, $Quantity);
-        }
+        $SelectName = "RealAwayShortsSelect";
+        $QuantityName = "RealAwayShortsQuantity";
+        ValidateToAddToMyCart($SelectName, $QuantityName, 41);
     }
 
     if(isset($_POST["RealAwaySocks"])){
-        $Size = $_POST["RealAwaySocksSelect"];
-        $Quantity = $_POST["RealAwaySocksQuantity"];
-        
-        if($Size == 0){}
-        else{
-            $SizeBool = true;
-        }
-        if($Quantity <= 0){}
-        else{
-            $QuantityBool = true;
-        }
-        if($SizeBool && $QuantityBool){
-            AddToMyCart(42, $Size, $Quantity);
-        }
+        $SelectName = "RealAwaySocksSelect";
+        $QuantityName = "RealAwaySocksQuantity";
+        ValidateToAddToMyCart($SelectName, $QuantityName, 42);
     }
 
     if(isset($_POST["Real3Shirt"])){
-        $Size = $_POST["Real3ShirtSelect"];
-        $Quantity = $_POST["Real3ShirtQuantity"];
-        
-        if($Size == 0){}
-        else{
-            $SizeBool = true;
-        }
-        if($Quantity <= 0){}
-        else{
-            $QuantityBool = true;
-        }
-        if($SizeBool && $QuantityBool){
-            AddToMyCart(43, $Size, $Quantity);
-        }
+        $SelectName = "Real3ShirtSelect";
+        $QuantityName = "Real3ShirtQuantity";
+        ValidateToAddToMyCart($SelectName, $QuantityName, 43);
     }
 
     if(isset($_POST["Real3Shorts"])){
-        $Size = $_POST["Real3ShortsSelect"];
-        $Quantity = $_POST["Real3ShortsQuantity"];
-        
-        if($Size == 0){}
-        else{
-            $SizeBool = true;
-        }
-        if($Quantity <= 0){}
-        else{
-            $QuantityBool = true;
-        }
-        if($SizeBool && $QuantityBool){
-            AddToMyCart(44, $Size, $Quantity);
-        }
+        $SelectName = "Real3ShortsSelect";
+        $QuantityName = "Real3ShortsQuantity";
+        ValidateToAddToMyCart($SelectName, $QuantityName, 44);
     }
 
     if(isset($_POST["Real3Socks"])){
-        $Size = $_POST["Real3SocksSelect"];
-        $Quantity = $_POST["Real3SocksQuantity"];
-        
-        if($Size == 0){}
-        else{
-            $SizeBool = true;
-        }
-        if($Quantity <= 0){}
-        else{
-            $QuantityBool = true;
-        }
-        if($SizeBool && $QuantityBool){
-            AddToMyCart(45, $Size, $Quantity);
-        }
+        $SelectName = "Real3SocksSelect";
+        $QuantityName = "Real3SocksQuantity";
+        ValidateToAddToMyCart($SelectName, $QuantityName, 45);
     }
     
 
@@ -881,6 +414,7 @@
                                 <br/>
                                 <label for = 'quantity'> Quantity: </label>
                                 <input type = 'number' name = 'JuveHomeShirtQuantity'><br/>
+                                <label> Size: </label>
                                 <select name = 'JuveHomeShirtSelect'>
                                     <option value = '0' selected> Select Size </option>
                                     <option value = '1'> Extra Small </option>
@@ -906,7 +440,8 @@
                                 <h1>Shorts 2017/2018</h1>
                                 <br/>
                                 <label for = 'quantity'> Quantity: </label>
-                                <input type = 'number' name = 'JuveHomeShortsQuantity'>
+                                <input type = 'number' name = 'JuveHomeShortsQuantity'><br/>
+                                <label> Size: </label>
                                 <select name = 'JuveHomeShortsSelect'>
                                     <option value = '0' selected> Select Size </option>
                                     <option value = '1'> Extra Small </option>
@@ -932,7 +467,8 @@
                                 <h1>Socks 2017/2018</h1>
                                 <br/>
                                 <label for = 'quantity'> Quantity: </label>
-                                <input type = 'number' name = 'JuveHomeSocksQuantity'>
+                                <input type = 'number' name = 'JuveHomeSocksQuantity'><br/>
+                                <label> Size: </label>
                                 <select name = 'JuveHomeSocksSelect'>
                                     <option value = '0' selected> Select Size </option>
                                     <option value = '1'> Extra Small </option>
@@ -962,7 +498,8 @@
                             <h1>Jersey 2017/2018</h1>
                             <br/>
                             <label for = 'quantity'> Quantity: </label>
-                            <input type = 'number' name = 'JuveAwayShirtQuantity'>
+                            <input type = 'number' name = 'JuveAwayShirtQuantity'><br/>
+                                <label> Size: </label>
                                 <select name = 'JuveAwayShirtSelect'>
                                     <option value = '0' selected> Select Size </option>
                                     <option value = '1'> Extra Small </option>
@@ -988,7 +525,8 @@
                                 <h1>Shorts 2017/2018</h1>
                                 <br/>
                                 <label for = 'quantity'> Quantity: </label>
-                                <input type = 'number' name = 'JuveAwayShortsQuantity'>
+                                <input type = 'number' name = 'JuveAwayShortsQuantity'><br/>
+                                <label> Size: </label>
                                 <select name = 'JuveAwayShortsSelect'>
                                     <option value = '0' selected> Select Size </option>
                                     <option value = '1'> Extra Small </option>
@@ -1013,7 +551,8 @@
                         <div id = 'ProductInfo'>
                             <h1>Socks 2017/2018</h1>
                             <label for = 'quantity'> Quantity: </label>
-                            <input type = 'number' name = 'JuveAwaySocksQuantity'>
+                            <input type = 'number' name = 'JuveAwaySocksQuantity'><br/>
+                                <label> Size: </label>
                                 <select name = 'JuveAwaySocksSelect'>
                                     <option value = '0' selected> Select Size </option>
                                     <option value = '1'> Extra Small </option>
@@ -1043,7 +582,8 @@
                         <h1>Jersey 2017/2018</h1>
                         <br/>
                         <label for = 'quantity'> Quantity: </label>
-                        <input type = 'number' name = 'Juve3ShirtQuantity'>
+                        <input type = 'number' name = 'Juve3ShirtQuantity'><br/>
+                                <label> Size: </label>
                                 <select name = 'Juve3ShirtSelect'>
                                     <option value = '0' selected> Select Size </option>
                                     <option value = '1'> Extra Small </option>
@@ -1069,7 +609,8 @@
                                 <h1>Shorts 2017/2018</h1>
                                 <br/>
                                 <label for = 'quantity'> Quantity: </label>
-                                <input type = 'number' name = 'Juve3ShortsQuantity'>
+                                <input type = 'number' name = 'Juve3ShortsQuantity'><br/>
+                                <label> Size: </label>
                                 <select name = 'Juve3ShortsSelect'>
                                     <option value = '0' selected> Select Size </option>
                                     <option value = '1'> Extra Small </option>
@@ -1095,7 +636,8 @@
                                 <h1>Socks 2017/2018</h1>
                                 <br/>
                                 <label for = 'quantity'> Quantity: </label>
-                                <input type = 'number' name = 'Juve3SocksQuantity'>
+                                <input type = 'number' name = 'Juve3SocksQuantity'><br/>
+                                <label> Size: </label>
                                 <select name = 'Juve3SocksSelect'>
                                     <option value = '0' selected> Select Size </option>
                                     <option value = '1'> Extra Small </option>
@@ -1128,7 +670,8 @@
                                         <h1>Jersey 2017/2018</h1>
                                         <br/>
                                         <label for = 'quantity'> Quantity: </label>
-                                        <input type = 'number' name = 'BayernHomeShirtQuantity'>
+                                        <input type = 'number' name = 'BayernHomeShirtQuantity'><br/>
+                                        <label> Size: </label>
                                         <select name = 'BayernHomeShirtSelect'>
                                             <option value = '0' selected> Select Size </option>
                                             <option value = '1'> Extra Small </option>
@@ -1154,7 +697,8 @@
                                 <h1>Shorts 2017/2018</h1>
                                 <br/>
                                 <label for = 'quantity'> Quantity: </label>
-                                <input type = 'number' name = 'BayernHomeShortsQuantity'>
+                                <input type = 'number' name = 'BayernHomeShortsQuantity'><br/>
+                                <label> Size: </label>
                                 <select name = 'BayernHomeShortsSelect'>
                                     <option value = '0' selected> Select Size </option>
                                     <option value = '1'> Extra Small </option>
@@ -1180,7 +724,8 @@
                                 <h1>Socks 2017/2018</h1>
                                 <br/>
                                 <label for = 'quantity'> Quantity: </label>
-                                <input type = 'number' name = 'BayernHomeSocksQuantity'>
+                                <input type = 'number' name = 'BayernHomeSocksQuantity'><br/>
+                                <label> Size: </label>
                                 <select name = 'BayernHomeSocksSelect'>
                                     <option value = '0' selected> Select Size </option>
                                     <option value = '1'> Extra Small </option>
@@ -1210,7 +755,8 @@
                                 <h1>Jersey 2017/2018</h1>
                                 <br/>
                                 <label for = 'quantity'> Quantity: </label>
-                                <input type = 'number' name = 'BayernAwayShirtQuantity'>
+                                <input type = 'number' name = 'BayernAwayShirtQuantity'><br/>
+                                <label> Size: </label>
                                 <select name = 'BayernAwayShirtSelect'>
                                     <option value = '0' selected> Select Size </option>
                                     <option value = '1'> Extra Small </option>
@@ -1236,7 +782,8 @@
                                 <h1>Shorts 2017/2018</h1>
                                 <br/>
                                 <label for = 'quantity'> Quantity: </label>
-                                <input type = 'number' name = 'BayernAwayShortsQuantity'>
+                                <input type = 'number' name = 'BayernAwayShortsQuantity'><br/>
+                                <label> Size: </label>
                                 <select name = 'BayernAwayShortsSelect'>
                                     <option value = '0' selected> Select Size </option>
                                     <option value = '1'> Extra Small </option>
@@ -1262,16 +809,17 @@
                                     <h1>Socks 2017/2018</h1>
                                     <br/>
                                     <label for = 'quantity'> Quantity: </label>
-                                    <input type = 'number' name = 'BayernAwaySocksQuantity'>
-                                <select name = 'BayernAwaySocksSelect'>
-                                    <option value = '0' selected> Select Size </option>
-                                    <option value = '1'> Extra Small </option>
-                                    <option value = '2'> Small </option>
-                                    <option value = '3'> Medium </option>
-                                    <option value = '4'> Large </option>
-                                    <option value = '5'> Extra Large </option>
-                                    <option value = '6'> Extra Extra Large </option>
-                                </select>
+                                    <input type = 'number' name = 'BayernAwaySocksQuantity'><br/>
+                                    <label> Size: </label>
+                                    <select name = 'BayernAwaySocksSelect'>
+                                        <option value = '0' selected> Select Size </option>
+                                        <option value = '1'> Extra Small </option>
+                                        <option value = '2'> Small </option>
+                                        <option value = '3'> Medium </option>
+                                        <option value = '4'> Large </option>
+                                        <option value = '5'> Extra Large </option>
+                                        <option value = '6'> Extra Extra Large </option>
+                                    </select>
                                     <p><span> Was: </span><span><s>&euro;18.00</s></span></p>
                                     <p> Price: &euro;". $BayernAwaySocks["Price"] ."</p>
                                     <input type = 'submit' value = 'Add to My Cart' class = 'btn btn-primary' name = 'BayernAwaySocks'>
@@ -1292,7 +840,8 @@
                                 <h1>Jersey 2017/2018</h1>
                                 <br/>
                                 <label for = 'quantity'> Quantity: </label>
-                                <input type = 'number' name = 'Bayern3ShirtQuantity'>
+                                <input type = 'number' name = 'Bayern3ShirtQuantity'><br/>
+                                <label> Size: </label>
                                 <select name = 'Bayern3ShirtSelect'>
                                     <option value = '0' selected> Select Size </option>
                                     <option value = '1'> Extra Small </option>
@@ -1318,7 +867,8 @@
                                 <h1>Shorts 2017/2018</h1>
                                 <br/>
                                 <label for = 'quantity'> Quantity: </label>
-                                <input type = 'number' name = 'Bayern3ShortsQuantity'>
+                                <input type = 'number' name = 'Bayern3ShortsQuantity'><br/>
+                                <label> Size: </label>
                                 <select name = 'Bayern3ShortsSelect'>
                                     <option value = '0' selected> Select Size </option>
                                     <option value = '1'> Extra Small </option>
@@ -1344,7 +894,8 @@
                                     <h1>Socks 2017/2018</h1>
                                     <br/>
                                     <label for = 'quantity'> Quantity: </label>
-                                    <input type = 'number' name = 'Bayern3SocksQuantity'>
+                                    <input type = 'number' name = 'Bayern3SocksQuantity'><br/>
+                                    <label> Size: </label>
                                     <select name = 'Bayern3SocksSelect'>
                                         <option value = '0' selected> Select Size </option>
                                         <option value = '1'> Extra Small </option>
@@ -1377,7 +928,8 @@
                                         <h1>Jersey 2017/2018</h1>
                                         <br/>
                                         <label for = 'quantity'> Quantity: </label>
-                                        <input type = 'number' name = 'PSGHomeShirtQuantity'>
+                                        <input type = 'number' name = 'PSGHomeShirtQuantity'><br/>
+                                        <label> Size: </label>
                                         <select name = 'PSGHomeShirtSelect'>
                                             <option value = '0' selected> Select Size </option>
                                             <option value = '1'> Extra Small </option>
@@ -1403,16 +955,17 @@
                                 <h1>Shorts 2017/2018</h1>
                                 <br/>
                                 <label for = 'quantity'> Quantity: </label>
-                                <input type = 'number' name = 'PSGHomeShortsQuantity'>
-                                        <select name = 'PSGHomeShortsSelect'>
-                                            <option value = '0' selected> Select Size </option>
-                                            <option value = '1'> Extra Small </option>
-                                            <option value = '2'> Small </option>
-                                            <option value = '3'> Medium </option>
-                                            <option value = '4'> Large </option>
-                                            <option value = '5'> Extra Large </option>
-                                            <option value = '6'> Extra Extra Large </option>
-                                        </select>
+                                <input type = 'number' name = 'PSGHomeShortsQuantity'><br/>
+                                <label> Size: </label>
+                                <select name = 'PSGHomeShortsSelect'>
+                                    <option value = '0' selected> Select Size </option>
+                                    <option value = '1'> Extra Small </option>
+                                    <option value = '2'> Small </option>
+                                    <option value = '3'> Medium </option>
+                                    <option value = '4'> Large </option>
+                                    <option value = '5'> Extra Large </option>
+                                    <option value = '6'> Extra Extra Large </option>
+                                </select>
                                 <p><span> Was: </span><span><s>&euro;20.50</s></span></p>
                                 <p> Price: &euro;". $PSGHomeShorts["Price"] ."</p>
                                 <input type = 'submit' value = 'Add to My Cart' class = 'btn btn-primary' name = 'PSGHomeShorts'>
@@ -1429,7 +982,8 @@
                                 <h1>Socks 2017/2018</h1>
                                 <br/>
                                 <label for = 'quantity'> Quantity: </label>
-                                <input type = 'number' name = 'PSGHomeSocksQuantity'>
+                                <input type = 'number' name = 'PSGHomeSocksQuantity'><br/>
+                                <label> Size: </label>
                                         <select name = 'PSGHomeSocksSelect'>
                                             <option value = '0' selected> Select Size </option>
                                             <option value = '1'> Extra Small </option>
@@ -1459,7 +1013,8 @@
                                 <h1>Jersey 2017/2018</h1>
                                 <br/>
                                 <label for = 'quantity'> Quantity: </label>
-                                <input type = 'number' name = 'PSGAwayShirtQuantity'>
+                                <input type = 'number' name = 'PSGAwayShirtQuantity'><br/>
+                                <label> Size: </label>
                                         <select name = 'PSGAwayShirtSelect'>
                                             <option value = '0' selected> Select Size </option>
                                             <option value = '1'> Extra Small </option>
@@ -1485,7 +1040,8 @@
                                     <h1>Shorts 2017/2018</h1>
                                     <br/>
                                     <label for = 'quantity'> Quantity: </label>
-                                    <input type = 'number' name = 'PSGAwayShortsQuantity'>
+                                    <input type = 'number' name = 'PSGAwayShortsQuantity'><br/>
+                                <label> Size: </label>
                                         <select name = 'PSGAwayShortsSelect'>
                                             <option value = '0' selected> Select Size </option>
                                             <option value = '1'> Extra Small </option>
@@ -1511,7 +1067,8 @@
                                 <h1>Socks 2017/2018</h1>
                                 <br/>
                                 <label for = 'quantity'> Quantity: </label>
-                                <input type = 'number' name = 'PSGAwaySocksQuantity'>
+                                <input type = 'number' name = 'PSGAwaySocksQuantity'><br/>
+                                <label> Size: </label>
                                         <select name = 'PSGAwaySocksSelect'>
                                             <option value = '0' selected> Select Size </option>
                                             <option value = '1'> Extra Small </option>
@@ -1541,7 +1098,8 @@
                                 <h1>Jersey 2017/2018</h1>
                                 <br/>
                                 <label for = 'quantity'> Quantity: </label>
-                                <input type = 'number' name = 'PSG3ShirtQuantity'>
+                                <input type = 'number' name = 'PSG3ShirtQuantity'><br/>
+                                <label> Size: </label>
                                         <select name = 'PSG3ShirtSelect'>
                                             <option value = '0' selected> Select Size </option>
                                             <option value = '1'> Extra Small </option>
@@ -1566,7 +1124,8 @@
                                 <h1>Shorts 2017/2018</h1>
                                 <br/>
                                 <label for = 'quantity'> Quantity: </label>
-                                <input type = 'number' name = 'PSG3ShortsQuantity'>
+                                <input type = 'number' name = 'PSG3ShortsQuantity'><br/>
+                                <label> Size: </label>
                                         <select name = 'PSG3ShortsSelect'>
                                             <option value = '0' selected> Select Size </option>
                                             <option value = '1'> Extra Small </option>
@@ -1592,7 +1151,8 @@
                                     <h1>Socks 2017/2018</h1>
                                     <br/>
                                     <label for = 'quantity'> Quantity: </label>
-                                    <input type = 'number' name = 'PSG3SocksQuantity'>
+                                    <input type = 'number' name = 'PSG3SocksQuantity'><br/>
+                                <label> Size: </label>
                                         <select name = 'PSG3SocksSelect'>
                                             <option value = '0' selected> Select Size </option>
                                             <option value = '1'> Extra Small </option>
@@ -1625,7 +1185,8 @@
                                 <h1>Jersey 2017/2018</h1>
                                 <br/>
                                 <label for = 'quantity'> Quantity: </label>
-                                <input type = 'number' name = 'ManCHomeShirtQuantity'>
+                                <input type = 'number' name = 'ManCHomeShirtQuantity'><br/>
+                                <label> Size: </label>
                                 <select name = 'ManCHomeShirtSelect'>
                                     <option value = '0' selected> Select Size </option>
                                     <option value = '1'> Extra Small </option>
@@ -1651,7 +1212,8 @@
                                 <h1>Shorts 2017/2018</h1>
                                 <br/>
                                 <label for = 'quantity'> Quantity: </label>
-                                <input type = 'number' name = 'ManCHomeShortsQuantity'>
+                                <input type = 'number' name = 'ManCHomeShortsQuantity'><br/>
+                                <label> Size: </label>
                                 <select name = 'ManCHomeShortsSelect'>
                                     <option value = '0' selected> Select Size </option>
                                     <option value = '1'> Extra Small </option>
@@ -1677,7 +1239,8 @@
                                 <h1>Socks 2017/2018</h1>
                                 <br/>
                                 <label for = 'quantity'> Quantity: </label>
-                                <input type = 'number' name = 'ManCHomeSocksQuantity'>
+                                <input type = 'number' name = 'ManCHomeSocksQuantity'><br/>
+                                <label> Size: </label>
                                 <select name = 'ManCHomeSocksSelect'>
                                     <option value = '0' selected> Select Size </option>
                                     <option value = '1'> Extra Small </option>
@@ -1707,7 +1270,8 @@
                                 <h1>Jersey 2017/2018</h1>
                                 <br/>
                                 <label for = 'quantity'> Quantity: </label>
-                                <input type = 'number' name = 'ManCAwayShirtQuantity'>
+                                <input type = 'number' name = 'ManCAwayShirtQuantity'><br/>
+                                <label> Size: </label>
                                 <select name = 'ManCAwayShirtSelect'>
                                     <option value = '0' selected> Select Size </option>
                                     <option value = '1'> Extra Small </option>
@@ -1733,7 +1297,8 @@
                                 <h1>Shorts 2017/2018</h1>
                                 <br/>
                                 <label for = 'quantity'> Quantity: </label>
-                                <input type = 'number' name = 'ManCAwaySjortsQuantity'>
+                                <input type = 'number' name = 'ManCAwaySjortsQuantity'><br/>
+                                <label> Size: </label>
                                 <select name = 'ManCAwayShortsSelect'>
                                     <option value = '0' selected> Select Size </option>
                                     <option value = '1'> Extra Small </option>
@@ -1759,7 +1324,8 @@
                                 <h1>Socks 2017/2018</h1>
                                 <br/>
                                 <label for = 'quantity'> Quantity: </label>
-                                <input type = 'number' name = 'ManCAwaySocksQuantity'>
+                                <input type = 'number' name = 'ManCAwaySocksQuantity'><br/>
+                                <label> Size: </label>
                                 <select name = 'ManCAwaySocksSelect'>
                                     <option value = '0' selected> Select Size </option>
                                     <option value = '1'> Extra Small </option>
@@ -1789,7 +1355,8 @@
                                 <h1>Jersey 2017/2018</h1>
                                 <br/>
                                 <label for = 'quantity'> Quantity: </label>
-                                <input type = 'number' name = 'ManC3ShirtQuantity'>
+                                <input type = 'number' name = 'ManC3ShirtQuantity'><br/>
+                                <label> Size: </label>
                                 <select name = 'ManC3ShirtSelect'>
                                     <option value = '0' selected> Select Size </option>
                                     <option value = '1'> Extra Small </option>
@@ -1815,7 +1382,8 @@
                                     <h1>Shorts 2017/2018</h1>
                                     <br/>
                                     <label for = 'quantity'> Quantity: </label>
-                                    <input type = 'number' name = 'ManC3ShortsQuantity'>
+                                    <input type = 'number' name = 'ManC3ShortsQuantity'><br/>
+                                <label> Size: </label>
                                 <select name = 'ManC3ShortsSelect'>
                                     <option value = '0' selected> Select Size </option>
                                     <option value = '1'> Extra Small </option>
@@ -1841,7 +1409,8 @@
                                     <h1>Socks 2017/2018</h1>
                                     <br/>
                                     <label for = 'quantity'> Quantity: </label>
-                                    <input type = 'number' name = 'ManC3SocksQuantity'>
+                                    <input type = 'number' name = 'ManC3SocksQuantity'><br/>
+                                <label> Size: </label>
                                 <select name = 'ManC3SocksSelect'>
                                     <option value = '0' selected> Select Size </option>
                                     <option value = '1'> Extra Small </option>
@@ -1874,7 +1443,8 @@
                                 <h1>Jersey 2017/2018</h1>
                                 <br/>
                                 <label for = 'quantity'> Quantity: </label>
-                                <input type = 'number' name = 'RealHomeShirtQuantity'>
+                                <input type = 'number' name = 'RealHomeShirtQuantity'><br/>
+                                <label> Size: </label>
                                 <select name = 'RealHomeShirtSelect'>
                                     <option value = '0' selected> Select Size </option>
                                     <option value = '1'> Extra Small </option>
@@ -1900,7 +1470,8 @@
                                 <h1>Shorts 2017/2018</h1>
                                 <br/>
                                 <label for = 'quantity'> Quantity: </label>
-                                <input type = 'number' name = 'RealHomeSortsQuantity'>
+                                <input type = 'number' name = 'RealHomeSortsQuantity'><br/>
+                                <label> Size: </label>
                                 <select name = 'RealHomeShortsSelect'>
                                     <option value = '0' selected> Select Size </option>
                                     <option value = '1'> Extra Small </option>
@@ -1926,7 +1497,8 @@
                                     <h1>Socks 2017/2018</h1>
                                     <br/>
                                     <label for = 'quantity'> Quantity: </label>
-                                    <input type = 'number' name = 'RealHomeSocksQuantity'>
+                                    <input type = 'number' name = 'RealHomeSocksQuantity'><br/>
+                                <label> Size: </label>
                                 <select name = 'RealHomeSocksSelect'>
                                     <option value = '0' selected> Select Size </option>
                                     <option value = '1'> Extra Small </option>
@@ -1956,7 +1528,8 @@
                                 <h1>Jersey 2017/2018</h1>
                                 <br/>
                                 <label for = 'quantity'> Quantity: </label>
-                                <input type = 'number' name = 'RealAwayShirtQuantity'>
+                                <input type = 'number' name = 'RealAwayShirtQuantity'><br/>
+                                <label> Size: </label>
                                 <select name = 'RealAwayShirtSelect'>
                                     <option value = '0' selected> Select Size </option>
                                     <option value = '1'> Extra Small </option>
@@ -1982,7 +1555,8 @@
                                 <h1>Shorts 2017/2018</h1>
                                 <br/>
                                 <label for = 'quantity'> Quantity: </label>
-                                <input type = 'number' name = 'RealAwayShortsQuantity'>
+                                <input type = 'number' name = 'RealAwayShortsQuantity'><br/>
+                                <label> Size: </label>
                                 <select name = 'RealAwayShortsSelect'>
                                     <option value = '0' selected> Select Size </option>
                                     <option value = '1'> Extra Small </option>
@@ -2008,7 +1582,8 @@
                                     <h1>Socks 2017/2018</h1>
                                     <br/>
                                     <label for = 'quantity'> Quantity: </label>
-                                    <input type = 'number' name = 'RealAwaySocksQuantity'>
+                                    <input type = 'number' name = 'RealAwaySocksQuantity'><br/>
+                                <label> Size: </label>
                                     <select name = 'RealAwaySocksSelect'>
                                         <option value = '0' selected> Select Size </option>
                                         <option value = '1'> Extra Small </option>
@@ -2038,7 +1613,8 @@
                                 <h1>Jersey 2017/2018</h1>
                                 <br/>
                                 <label for = 'quantity'> Quantity: </label>
-                                <input type = 'number' name = 'Real3ShirtQuantity'>
+                                <input type = 'number' name = 'Real3ShirtQuantity'><br/>
+                                <label> Size: </label>
                                 <select name = 'Real3ShirtSelect'>
                                     <option value = '0' selected> Select Size </option>
                                     <option value = '1'> Extra Small </option>
@@ -2064,7 +1640,8 @@
                                 <h1>Shorts 2017/2018</h1>
                                 <br/>
                                 <label for = 'quantity'> Quantity: </label>
-                                <input type = 'number' name = 'Real3ShortsQuantity'>
+                                <input type = 'number' name = 'Real3ShortsQuantity'><br/>
+                                <label> Size: </label>
                                 <select name = 'Real3ShortsSelect'>
                                     <option value = '0' selected> Select Size </option>
                                     <option value = '1'> Extra Small </option>
@@ -2090,7 +1667,8 @@
                                 <h1>Socks 2017/2018</h1>
                                 <br/>
                                 <label for = 'quantity'> Quantity: </label>
-                                <input type = 'number' name = 'Real3SocksQuantity'>
+                                <input type = 'number' name = 'Real3SocksQuantity'><br/>
+                                <label> Size: </label>
                                 <select name = 'Real3SocksSelect'>
                                     <option value = '0' selected> Select Size </option>
                                     <option value = '1'> Extra Small </option>

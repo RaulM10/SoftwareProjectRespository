@@ -2,7 +2,7 @@
     session_start();
     include "connect.php";
     $Username = $_SESSION["Username"];
-    $Id = $_GET["DelId"];
+    $Id = $_GET["Id"];
     $ChosenAccount = $ChosenOrder = "";
     $GetAllUsernameQuery = "SELECT * FROM account";
     $GetAllUsernameResult = mysqli_query($link, $GetAllUsernameQuery);
@@ -16,10 +16,12 @@
     while($GetOrderId = mysqli_fetch_assoc($GetOrderIdResult)){
         $ChosenOrder = $GetOrderId["Order_Id"];
     }
-    $DeleteQuery = "DELETE FROM order_product WHERE Order_Id = $ChosenOrder AND Product_Id = $ChosenAccount";
+    $DeleteQuery = "DELETE FROM order_product WHERE Order_Id = $ChosenOrder AND Product_Id = $Id";
     $DeleteQueryResult = mysqli_query($link, $DeleteQuery);
     if(mysqli_affected_rows($link) == 1){
         header("Location: MyCart.php");
     }
-    else{}
+    else{
+        echo "Problem";
+    }
 ?>
