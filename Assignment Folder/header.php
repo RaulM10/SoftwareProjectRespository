@@ -13,9 +13,9 @@
                         <span id = 'LoggedInUsername'><a href = '#'>  You are Logged In as ". $_SESSION["Username"] ."</a></span>
                         <a href = '#'><img src = '#' width = '150' height = '100' id = 'MainLogo' alt = 'Main Icon'></a>
                         <a class = 'navbar-brand text-danger' href = '#'>Football Sportswear</a>
-                        <form class = 'form-inline ml-5'>
-                            <input class = 'form-control mr-3' type = 'search' placeholder = 'Search' aria-label = 'Search'>
-                            <button class = 'btn btn-outline-success'><i class='fa fa-search fa-2x'></i></button>
+                        <form class = 'form-inline ml-5' action = 'searchbar.php' method = 'post'>
+                            <input class = 'form-control mr-3' type = 'search' placeholder = 'Search' aria-label = 'Search' name = 'SearchField'>
+                            <button class = 'btn btn-outline-success' name = 'SearchButton'><i class='fa fa-search fa-2x'></i></button>
                         </form>
                         <form action = 'Menu.php' method = 'post'>
                             <div class = 'ProductsButton'><button class = 'btn btn-outline-warning'><i class = 'fab fa-product-hunt fa-2x'></i></button>

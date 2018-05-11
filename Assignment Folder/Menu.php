@@ -426,7 +426,7 @@
                                 </select>
                                 <p><span> Was: </span><span><s>&euro;35.50</s></span></p>
                                 <p> Price: &euro;". $JuveHomeShirt["Price"] ."</p>
-                                <input type = 'submit' value = 'Add to My Cart' class = 'btn btn-primary' name = 'JuveHomeShirt'>
+                                <input type = 'submit' value = 'Add to My Cart' class = 'btn btn-primary' name = 'JuveHomeShirt' id = 'JuveHomeShirt'>
                             </div>
                         </div>
                         <div class = 'clear'></div>";

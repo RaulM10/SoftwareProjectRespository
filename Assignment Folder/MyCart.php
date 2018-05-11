@@ -45,14 +45,14 @@
                                         <th>Update</th>
                                         <th>Delete</th>
                                     </tr>
-                                    <tr>
-                                        <th>". $AllProducts["Quantity"] ."</th>
-                                        <th> $ActualSize </th>
-                                        <th>&euro;". $ActualPrice * $AllProducts["Quantity"] ."</th>
-                                        <th><button class = 'btn btn-warning'><a href = 'Edit.php?Id=". $AllProducts['Product_Id'] ."'> Update </a></button></th>
-                                        <th><button class = 'btn btn-danger'><a href = 'Delete.php?Id=". $AllProducts["Product_Id"] ."'> Delete </a></button></th>
-                                    </tr>
                                 </thead>
+                                    <tr>
+                                        <td>". $AllProducts["Quantity"] ."</td>
+                                        <td> $ActualSize </td>
+                                        <td>&euro;". $ActualPrice * $AllProducts["Quantity"] ."</td>
+                                        <td><button class = 'btn btn-warning'><a href = 'Edit.php?Id=". $AllProducts['Product_Id'] ."'> Update </a></button></td>
+                                        <th><button class = 'btn btn-danger'><a href = 'Delete.php?Id=". $AllProducts["Product_Id"] ."'> Delete </a></button></td>
+                                    </tr>
                             </table>
                         </div>
                         <div class = 'clear'></div>";   
