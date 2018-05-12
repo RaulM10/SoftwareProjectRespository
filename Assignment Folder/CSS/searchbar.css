@@ -1,0 +1,23 @@
+a, a:hover, a:visited, a:link{
+    color: #000000;
+}
+
+#Product{
+    display: inline;
+}
+
+#Image{
+    width: 300px;
+    margin: 15px;25px;
+    border: 1px solid;
+    float: left;
+}
+
+.clear{
+    clear: left;
+}
+
+#ProductInfo{
+    margin-left: 500px;
+    padding-top: 50px;
+}

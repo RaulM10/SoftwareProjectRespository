@@ -1,5 +1,8 @@
 <?php
     session_start();
+    if(isset($_POST["CheckOutBtn"])){
+        header("Location: CheckoutPage.php");
+    }
     if(isset($_SESSION["Username"])){
         include "header.php";
         include "connect.php";
@@ -60,7 +63,9 @@
         $GetAllOrderProducts = "SELECT * FROM order_product WHERE Order_Id = $ChosenOrder";
         $GetAllOrders = mysqli_query($link, $GetAllOrderProducts);
         if(mysqli_affected_rows($link) >= 1){
-            echo "<button class= 'btn btn-primary btn-lg btn-block'> Proceed To Checkout  </button>";
+            echo "<form action = 'MyCart.php' method = 'post'>
+                    <button class= 'btn btn-primary btn-lg btn-block' name = 'CheckOutBtn'> Proceed To Checkout  </button>
+                  </form>";
         }
         else{}
         echo "<link rel = 'stylesheet' href = 'CSS/MyCart.css'>

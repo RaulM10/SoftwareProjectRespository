@@ -11,7 +11,6 @@
         $RegPassword2 = $_POST["RegPassword2"];
         $HashedPassword;
         $nameBool = $surnameBool = $cityBool = $countryBool = $emailBool = $RegUsernameBool = $RegPasswordBool = $RegPassword2Bool = false;
-
         #Name Validation
         if(empty($name)){
             echo "<style type = 'text/css'>
@@ -306,8 +305,7 @@
                     while($AccountResults = mysqli_fetch_assoc($AccountExecute)){
                         $AccountAns = $AccountResults["Account_Id"];
                     }
-                    $HashedEmail = password_hash($email, PASSWORD_DEFAULT);
-                    $UserQuery = "INSERT INTO user(Name, Surname, Email_Address, Town_Id, Account_Id) VALUES('$name', '$surname', '$HashedEmail', '$TownAns', '$AccountAns')";
+                    $UserQuery = "INSERT INTO user(Name, Surname, Email_Address, Town_Id, Account_Id) VALUES('$name', '$surname', '$email', '$TownAns', '$AccountAns')";
                     $UserRegister = mysqli_query($link, $UserQuery);
                 }
             }
@@ -393,7 +391,7 @@
     </head>
     <body>
         <h1 id = "SystemTitle"> Football Sportswear Online Shop</h1>
-        <form id = "LoginDiv" method = "post" action = "FirstPage.php" autocomplete = "off" name = "LoginForm">
+        <form id = "LoginDiv" method = "post" action = "index.php" autocomplete = "off" name = "LoginForm">
             <h1> - - Log In - - </h1>
             <input type = "text" name = "LoginUsername" id = "LogUsername" placeholder = "Enter your Username..." class = "form-control">
             <br/>
@@ -405,7 +403,7 @@
         <p id = "TopLines">  | | | | | | | |</p>
         <p id = "OrWord"> OR </p>
         <p id = "BottomLines">  | | | | | | | |</p>
-        <form id = "RegisterDiv" method = "post" action = "FirstPage.php" autocomplete = "off">
+        <form id = "RegisterDiv" method = "post" action = "index.php" autocomplete = "off">
             <h1> - - Register - - </h1>
             <div class = "row">
                 <div class = "col">

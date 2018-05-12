@@ -2,7 +2,7 @@
     session_start();
     include "connect.php";
     include "LocationButtons.php";
-    function AddToMyCart($Product_Id, $Size_Id, $Quantity, $Price, $ButtonName){
+    function AddToMyCart($Product_Id, $Size_Id, $Quantity, $Price){
         include "connect.php";
         $ChosenAccount = $ChosenOrder = "";
         $Username = $_SESSION["Username"];
@@ -20,21 +20,7 @@
         }
         $TotalPrice = $Quantity * $Price;
         $InsertQuery = "INSERT INTO order_product(Order_Id, Product_Id, Size_Id, Quantity, Price) VALUES('$ChosenOrder', '$Product_Id', '$Size_Id', '$Quantity', '$TotalPrice')";
-        $InsertResult = mysqli_query($link, $InsertQuery) ;
-        if(mysqli_affected_rows($link) == 1){
-            echo "<style>
-                    #$ButtonName{
-                        background-color: #00ff00;
-                    }
-                </style>";
-        }
-        else{
-            echo "<style>
-                    #$ButtonName{
-                        background-color:  #ff0000;
-                    }
-                </style>";
-        }
+        $InsertResult = mysqli_query($link, $InsertQuery);
     }
 
     function ValidateToAddToMyCart($SelectName, $QuantityName, $ProductId){
@@ -58,8 +44,7 @@
             while($GetPrice = mysqli_fetch_assoc($GetPriceResult)){
                 $Price = $GetPrice["Price"];
             }
-            $ButtonName = "JuveHomeShirt";
-            AddToMyCart($ProductId, $Size, $Quantity, $Price, $ButtonName);
+            AddToMyCart($ProductId, $Size, $Quantity, $Price);
         }
     }
 
@@ -399,6 +384,7 @@
             </a>
         </aside>
         <div id = 'Catalogue'>
+            <form action = 'Menu.php' method = 'post'>
             <div id = 'Juve'>
                 <p id = 'TeamTitle'><b>  --------------------------------------- Juventus F.C. -------------------------------------- </b></p>
                 <br/>
@@ -426,7 +412,7 @@
                                 </select>
                                 <p><span> Was: </span><span><s>&euro;35.50</s></span></p>
                                 <p> Price: &euro;". $JuveHomeShirt["Price"] ."</p>
-                                <input type = 'submit' value = 'Add to My Cart' class = 'btn btn-primary' name = 'JuveHomeShirt' id = 'JuveHomeShirt'>
+                                    <input type = 'submit' value = 'Add to My Cart' class = 'btn btn-primary' name = 'JuveHomeShirt' id = 'JuveHomeShirt'>
                             </div>
                         </div>
                         <div class = 'clear'></div>";
@@ -1685,6 +1671,7 @@
                         </div>
                     </div>
                 </div>
+                </form>
             </div>
             <aside id = 'RightSide'>
             </aside>

@@ -1,4 +1,5 @@
 <?php
+    include "LocationButtons.php";
     echo "<!DOCTYPE html>
                 <html lang = 'en'>
                     <head>
@@ -17,17 +18,17 @@
                             <input class = 'form-control mr-3' type = 'search' placeholder = 'Search' aria-label = 'Search' name = 'SearchField'>
                             <button class = 'btn btn-outline-success' name = 'SearchButton'><i class='fa fa-search fa-2x'></i></button>
                         </form>
-                        <form action = 'Menu.php' method = 'post'>
-                            <div class = 'ProductsButton'><button class = 'btn btn-outline-warning'><i class = 'fab fa-product-hunt fa-2x'></i></button>
+                        <form action = 'header.php' method = 'post'>
+                            <div class = 'ProductsButton'><button class = 'btn btn-outline-warning' name = 'ProductsButton'><i class = 'fab fa-product-hunt fa-2x'></i></button>
                                 <span class = 'ProductsText'> Show Products </span>
                             </div>
-                            <div class = 'HelpButton'><button class = 'btn btn-outline-warning'><i class='fas fa-question-circle fa-2x'></i></button>
+                            <div class = 'HelpButton'><button class = 'btn btn-outline-warning' name = 'HelpButton'><i class='fas fa-question-circle fa-2x'></i></button>
                                 <span class = 'HelpText'> Help </span>
                             </div>
-                            <div class = 'ContactPhoneButton'><button class = 'btn btn-outline-warning'><i class = 'fas fa-phone fa-2x'></i></button>
+                            <div class = 'ContactPhoneButton'><button class = 'btn btn-outline-warning' name = 'ContactPhoneButton'><i class = 'fas fa-phone fa-2x'></i></button>
                                 <span class = 'ContactPhoneText'> Contact Us </span>
                             </div>
-                            <div class = 'FeedbackButton'><button class = 'btn btn-outline-warning'><i class = 'fas fa-comment fa-2x'></i></button>
+                            <div class = 'FeedbackButton'><button class = 'btn btn-outline-warning' name = 'FeedbackButton'><i class = 'fas fa-comment fa-2x'></i></button>
                                 <span class = 'FeedbackText'> Give Feedback </span>
                             </div>
                             <div class = 'ImagesButton'>
@@ -41,6 +42,7 @@
                             <div class = 'LogOutButton'><button class = 'btn btn-outline-warning' name = 'LogOutButton'><i class = 'fas fa-sign-out-alt fa-2x'><a href = 'Logout.php'></a></i></button>
                                 <span class = 'LogOutText'> Log Out </span>
                             </div>
+                        </form>
                             <button class = navbar-toggler type = 'button' data-toggle = 'collapse' data-target = '#Nav' aria-controls = 'Nav' aria-expanded = 'false' aria-label = 'Toggle navigation'>
                                 <span class = 'navbar-toggler-icon'></span>
                             </button>

@@ -19,7 +19,7 @@
     }
 
     if(isset($_POST["ContactPhoneButton"])){
-        //header("Location: ContactUs.php");
+        header("Location: ContactUs.php");
     }
 
     if(isset($_POST["ProductsButton"])){
