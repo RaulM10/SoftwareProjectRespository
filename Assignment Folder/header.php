@@ -18,7 +18,7 @@
                             <input class = 'form-control mr-3' type = 'search' placeholder = 'Search' aria-label = 'Search' name = 'SearchField'>
                             <button class = 'btn btn-outline-success' name = 'SearchButton'><i class='fa fa-search fa-2x'></i></button>
                         </form>
-                        <form action = 'header.php' method = 'post'>
+                        <form action = 'LocationButtons.php' method = 'post'>
                             <div class = 'ProductsButton'><button class = 'btn btn-outline-warning' name = 'ProductsButton'><i class = 'fab fa-product-hunt fa-2x'></i></button>
                                 <span class = 'ProductsText'> Show Products </span>
                             </div>

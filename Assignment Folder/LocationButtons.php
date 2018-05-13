@@ -7,7 +7,7 @@
     }
 
     if(isset($_POST["HelpButton"])){
-        //header("Location: Help.php");
+        header("Location: Help.php");
     }
 
     if(isset($_POST["MyCartButton"])){
@@ -15,7 +15,7 @@
     }
 
     if(isset($_POST["FeedbackButton"])){
-        //header("Location: Feedback.php");
+        header("Location: Feedback.php");
     }
 
     if(isset($_POST["ContactPhoneButton"])){
