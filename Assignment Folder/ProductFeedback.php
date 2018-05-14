@@ -2,7 +2,7 @@
     session_start();
     include "header.php";
     include "connect.php";
-    $GetAllReviews = "SELECT * FROM website_review";
+    $GetAllReviews = "SELECT * FROM product_review";
     $GetAllReviewsResult = mysqli_query($link, $GetAllReviews);
     while($Reviews = mysqli_fetch_assoc($GetAllReviewsResult)){
         echo "<div id = 'Review'>
@@ -45,11 +45,16 @@
                                 <label for = 'CommentsText'> Comments: </label>
                                 <span id = 'CommentsText'>'". $Reviews["Review"] ."'</span>
                             </div>
-                        </div>";
-                    
+                            <div id = 'ChosenProductImage'>";
+                            $GetImage = "SELECT * FROM product WHERE Product_Id = '". $Reviews["Product_Id"] ."'";
+                            $GetImageResult = mysqli_query($link, $GetImage);
+                            while($Image = mysqli_fetch_assoc($GetImageResult)){
+                                echo "<img src = '". $Image["URL"] ."' id = 'Image'>";
+                            }
+                            echo "</div>
+                                </div>";
     }
-    
 
 ?>
 <a href = "Feedback.php"> Feedback Page </a>
-<a href = "ProductFeedback.php"> Product </a>
+<a href = "WebsiteFeedback.php"> Website </a>

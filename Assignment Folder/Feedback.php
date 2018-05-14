@@ -118,12 +118,6 @@
             $InsertResult  = mysqli_query($link, $InsertQuery) or die (mysqli_error($link));
         }
     }
-
-
-
-
-
-
 ?>
 
 
@@ -196,3 +190,6 @@
     ?>
     <input type = "submit" value = "Submit" id = "ProductFeedbackBtn" class = "btn btn-outline-light" name = "ProductFeedbackBtn">
 </form>
+<a href = "WebsiteFeedback.php"> Website </a>
+<a href = "ProductFeedback.php"> Product </a>
+
