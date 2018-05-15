@@ -410,7 +410,7 @@
                                     <option value = '5'> Extra Large </option>
                                     <option value = '6'> Extra Extra Large </option>
                                 </select>
-                                <p><span> Was: </span><span><s>&euro;35.50</s></span></p>
+                                <p><span> Was: </span><span><s>&euro;" . $JuveHomeShirt["OldPrice"] ."</s></span></p>
                                 <p> Price: &euro;". $JuveHomeShirt["Price"] ."</p>
                                     <input type = 'submit' value = 'Add to My Cart' class = 'btn btn-primary' name = 'JuveHomeShirt' id = 'JuveHomeShirt'>
                             </div>
@@ -437,7 +437,7 @@
                                     <option value = '5'> Extra Large </option>
                                     <option value = '6'> Extra Extra Large </option>
                                 </select>
-                                <p><span> Was: </span><span><s>&euro;20.50</s></span></p>
+                                <p><span> Was: </span><span><s>&euro;". $JuveHomeShorts["OldPrice"] ."</s></span></p>
                                 <p> Price: &euro;". $JuveHomeShorts["Price"] ."</p>
                                 <input type = 'submit' value = 'Add to My Cart' class = 'btn btn-primary' name = 'JuveHomeShorts'>
                             </div>
@@ -464,8 +464,8 @@
                                     <option value = '5'> Extra Large </option>
                                     <option value = '6'> Extra Extra Large </option>
                                 </select>
-                                <p><span> Was: </span><span><s>&euro;18.00</s></span></p>
-                                <p> Price: &euro;". $JuveHomeSocks["Price"] ." </p>
+                                <p><span> Was: </span><span><s>&euro;". $JuveHomeSocks["OldPrice"] ."</s></span></p>
+                                <p> Price: &euro;". $JuveHomeSocks["Price"] ."</p>
                                 <input type = 'submit' value = 'Add to My Cart' class = 'btn btn-primary' name = 'JuveHomeSocks'>
                             </div>
                         </div>
@@ -495,7 +495,7 @@
                                     <option value = '5'> Extra Large </option>
                                     <option value = '6'> Extra Extra Large </option>
                                 </select>
-                            <p><span> Was: </span><span><s>&euro;35.50</s></span></p>
+                            <p><span> Was: </span><span><s>&euro;". $JuveAwayShirt["OldPrice"]."</s></span></p>
                             <p> Price: &euro;". $JuveAwayShirt["Price"]."</p>
                             <input type = 'submit' value = 'Add to My Cart' class = 'btn btn-primary' name = 'JuveAwayShirt'>
                         </div>
@@ -522,7 +522,7 @@
                                     <option value = '5'> Extra Large </option>
                                     <option value = '6'> Extra Extra Large </option>
                                 </select>
-                                <p><span> Was: </span><span><s>&euro;40.00</s></span></p>
+                                <p><span> Was: </span><span><s>&euro;".  $JuveAwayShorts["OldPrice"] ."</s></span></p>
                                 <p> Price: &euro;".  $JuveAwayShorts["Price"] ."</p>
                                 <input type = 'submit' value = 'Add to My Cart' class = 'btn btn-primary' name = 'JuveAwayShorts'>
                                 </div>
@@ -548,7 +548,7 @@
                                     <option value = '5'> Extra Large </option>
                                     <option value = '6'> Extra Extra Large </option>
                                 </select>
-                            <p><span> Was: </span><span><s>&euro;18.00</s></span></p>
+                            <p><span> Was: </span><span><s>&euro;". $JuveAwaySocks["OldPrice"] ."</s></span></p>
                             <p> Price: &euro;". $JuveAwaySocks["Price"] ."</p>
                             <input type = 'submit' value = 'Add to My Cart' class = 'btn btn-primary' name = 'JuveAwaySocks'>
                         </div>
@@ -579,8 +579,8 @@
                                     <option value = '5'> Extra Large </option>
                                     <option value = '6'> Extra Extra Large </option>
                                 </select>
-                        <p><span> Was: </span><span><s>&euro;30.50</s></span></p>
-                        <p> Price: &euro;". $Juve3Shirt["Price"] . "</p>
+                        <p><span> Was: </span><span><s>&euro;". $Juve3Shirt["OldPrice"] ."</s></span></p>
+                        <p> Price: &euro;". $Juve3Shirt["Price"] ."</p>
                         <input type = 'submit' value = 'Add to My Cart' class = 'btn btn-primary' name = 'Juve3Shirt'>
                     </div>
                 </div>
@@ -606,7 +606,7 @@
                                     <option value = '5'> Extra Large </option>
                                     <option value = '6'> Extra Extra Large </option>
                                 </select>
-                                <p><span> Was: </span><span><s>&euro;20.00</s></span></p>
+                                <p><span> Was: </span><span><s>&euro;". $Juve3Shorts["OldPrice"] ."</s></span></p>
                                 <p> Price: &euro;". $Juve3Shorts["Price"] ."</p>
                                 <input type = 'submit' value = 'Add to My Cart' class = 'btn btn-primary' name = 'Juve3Shorts'>
                             </div>
@@ -633,7 +633,7 @@
                                     <option value = '5'> Extra Large </option>
                                     <option value = '6'> Extra Extra Large </option>
                                 </select>
-                                <p><span> Was: </span><span><s>&euro;18.00</s></span></p>
+                                <p><span> Was: </span><span><s>&euro;". $Juve3Socks["OldPrice"] ."</s></span></p>
                                 <p> Price: &euro;". $Juve3Socks["Price"] ."</p>
                                 <input type = 'submit' value = 'Add to My Cart' class = 'btn btn-primary' name = 'Juve3Socks'>
                             </div>
@@ -667,7 +667,7 @@
                                             <option value = '5'> Extra Large </option>
                                             <option value = '6'> Extra Extra Large </option>
                                         </select>
-                                        <p><span> Was: </span><span><s>&euro;30.50</s></span></p>
+                                        <p><span> Was: </span><span><s>&euro;". $BayernHomeShirt["OldPrice"] ."</s></span></p>
                                         <p> Price: &euro;". $BayernHomeShirt["Price"] ."</p>
                                         <input type = 'submit' value = 'Add to My Cart' class = 'btn btn-primary' name = 'BayernJerseyHome'>
                                     </div>
@@ -694,7 +694,7 @@
                                     <option value = '5'> Extra Large </option>
                                     <option value = '6'> Extra Extra Large </option>
                                 </select>
-                                <p><span> Was: </span><span><s>&euro;20.50</s></span></p>
+                                <p><span> Was: </span><span><s>&euro;". $BayernHomeShorts["OldPrice"] ."</s></span></p>
                                 <p> Price: &euro;". $BayernHomeShorts["Price"] ."</p>
                                 <input type = 'submit' value = 'Add to My Cart' class = 'btn btn-primary' name = 'BayernHomeShorts'>
                             </div>
@@ -721,7 +721,7 @@
                                     <option value = '5'> Extra Large </option>
                                     <option value = '6'> Extra Extra Large </option>
                                 </select>
-                                <p><span> Was: </span><span><s>&euro;13.50</s></span></p>
+                                <p><span> Was: </span><span><s>&euro;". $BayernHomeSocks["OldPrice"] ."</s></span></p>
                                 <p> Price: &euro;". $BayernHomeSocks["Price"] ."</p>
                                 <input type = 'submit' value = 'Add to My Cart' class = 'btn btn-primary' name = 'BayernHomeSocks'>
                             </div>
@@ -752,7 +752,7 @@
                                     <option value = '5'> Extra Large </option>
                                     <option value = '6'> Extra Extra Large </option>
                                 </select>
-                                <p><span> Was: </span><span><s>&euro;31.00</s></span></p>
+                                <p><span> Was: </span><span><s>&euro;". $BayernAwayShirt["OldPrice"] ."</s></span></p>
                                 <p> Price: &euro;". $BayernAwayShirt["Price"] ."</p>
                                 <input type = 'submit' value = 'Add to My Cart' class = 'btn btn-primary' name = 'BayernAwayJersey'>
                             </div>
@@ -779,7 +779,7 @@
                                     <option value = '5'> Extra Large </option>
                                     <option value = '6'> Extra Extra Large </option>
                                 </select>
-                                <p><span> Was: </span><span><s>&euro;18.50</s></span></p>
+                                <p><span> Was: </span><span><s>&euro;". $BayernAwayShorts["OldPrice"] ."</s></span></p>
                                 <p> Price: &euro;". $BayernAwayShorts["Price"] ."</p>
                                 <input type = 'submit' value = 'Add to My Cart' class = 'btn btn-primary' name = 'BayernAwayShorts'>
                             </div>
@@ -806,7 +806,7 @@
                                         <option value = '5'> Extra Large </option>
                                         <option value = '6'> Extra Extra Large </option>
                                     </select>
-                                    <p><span> Was: </span><span><s>&euro;18.00</s></span></p>
+                                    <p><span> Was: </span><span><s>&euro;". $BayernAwaySocks["OldPrice"] ."</s></span></p>
                                     <p> Price: &euro;". $BayernAwaySocks["Price"] ."</p>
                                     <input type = 'submit' value = 'Add to My Cart' class = 'btn btn-primary' name = 'BayernAwaySocks'>
                                 </div>
@@ -837,7 +837,7 @@
                                     <option value = '5'> Extra Large </option>
                                     <option value = '6'> Extra Extra Large </option>
                                 </select>
-                                <p><span> Was: </span><span><s>&euro;32.00</s></span></p>
+                                <p><span> Was: </span><span><s>&euro;". $Bayern3Shirt["OldPrice"] ."</s></span></p>
                                 <p> Price: &euro;". $Bayern3Shirt["Price"] ."</p>
                                 <input type = 'submit' value = 'Add to My Cart' class = 'btn btn-primary' name = 'Bayern3Shirt'>
                             </div>
@@ -864,7 +864,7 @@
                                     <option value = '5'> Extra Large </option>
                                     <option value = '6'> Extra Extra Large </option>
                                 </select>
-                                <p><span> Was: </span><span><s>&euro;20.50</s></span></p>
+                                <p><span> Was: </span><span><s>&euro;". $Bayern3Shorts["OldPrice"] ."</s></span></p>
                                 <p> Price: &euro;". $Bayern3Shorts["Price"] ."</p>
                                 <input type = 'submit' value = 'Add to My Cart' class = 'btn btn-primary' name = 'Bayern3Shorts'>
                             </div>
@@ -891,7 +891,7 @@
                                         <option value = '5'> Extra Large </option>
                                         <option value = '6'> Extra Extra Large </option>
                                     </select>
-                                    <p><span> Was: </span><span><s>&euro;18.50</s></span></p>
+                                    <p><span> Was: </span><span><s>&euro;". $Bayern3Socks["OldPrice"] ."</s></span></p>
                                     <p> Price: &euro;". $Bayern3Socks["Price"] ."</p>
                                     <input type = 'submit' value = 'Add to My Cart' class = 'btn btn-primary' name = 'Bayern3Socks'>
                                 </div> 
@@ -925,7 +925,7 @@
                                             <option value = '5'> Extra Large </option>
                                             <option value = '6'> Extra Extra Large </option>
                                         </select>
-                                        <p><span> Was: </span><span><s>&euro;25.00</s></span></p>
+                                        <p><span> Was: </span><span><s>&euro;". $PSGHomeShirt["OldPrice"] ."</s></span></p>
                                         <p> Price: &euro;". $PSGHomeShirt["Price"] ."</p>
                                         <input type = 'submit' value = 'Add to My Cart' class = 'btn btn-primary' name = 'PSGHomeShirt'>
                                     </div>
@@ -952,7 +952,7 @@
                                     <option value = '5'> Extra Large </option>
                                     <option value = '6'> Extra Extra Large </option>
                                 </select>
-                                <p><span> Was: </span><span><s>&euro;20.50</s></span></p>
+                                <p><span> Was: </span><span><s>&euro;". $PSGHomeShorts["OldPrice"] ."</s></span></p>
                                 <p> Price: &euro;". $PSGHomeShorts["Price"] ."</p>
                                 <input type = 'submit' value = 'Add to My Cart' class = 'btn btn-primary' name = 'PSGHomeShorts'>
                             </div>
@@ -979,7 +979,7 @@
                                             <option value = '5'> Extra Large </option>
                                             <option value = '6'> Extra Extra Large </option>
                                         </select>
-                                <p><span> Was: </span><span><s>&euro;13.50</s></span></p>
+                                <p><span> Was: </span><span><s>&euro;". $PSGHomeSocks["OldPrice"] ."</s></span></p>
                                 <p> Price: &euro;". $PSGHomeSocks["Price"] ."</p>
                                 <input type = 'submit' value = 'Add to My Cart' class = 'btn btn-primary' name = 'PSGHomeSocks'>
                             </div>
@@ -1010,7 +1010,7 @@
                                             <option value = '5'> Extra Large </option>
                                             <option value = '6'> Extra Extra Large </option>
                                         </select>
-                                <p><span> Was: </span><span><s>&euro;21.50</s></span></p>
+                                <p><span> Was: </span><span><s>&euro;". $PSGAwayShirt["OldPrice"] ."</s></span></p>
                                 <p> Price: &euro;". $PSGAwayShirt["Price"] ."</p>
                                 <input type = 'submit' value = 'Add to My Cart' class = 'btn btn-primary' name = 'PSGAwayShirt'>
                             </div>
@@ -1037,8 +1037,8 @@
                                             <option value = '5'> Extra Large </option>
                                             <option value = '6'> Extra Extra Large </option>
                                         </select>
-                                    <p><span> Was: </span><span><s>&euro;40.00</s></span></p>
-                                    <p> Price: &euro; 30.00</p>
+                                    <p><span> Was: </span><span><s>&euro;". $PSGAwayShorts["OldPrice"] ."</s></span></p>
+                                    <p> Price: &euro;". $PSGAwayShorts["Price"] ."</p>
                                     <input type = 'submit' value = 'Add to My Cart' class = 'btn btn-primary' name = 'PSGAwayShorts'>
                                 </div>
                             </div>
@@ -1064,7 +1064,7 @@
                                             <option value = '5'> Extra Large </option>
                                             <option value = '6'> Extra Extra Large </option>
                                         </select>
-                                <p><span> Was: </span><span><s>&euro;13.50</s></span></p>
+                                <p><span> Was: </span><span><s>&euro;". $PSGAwaySocks["OldPrice"] ."</s></span></p>
                                 <p> Price: &euro;". $PSGAwaySocks["Price"] ."</p>
                                 <input type = 'submit' value = 'Add to My Cart' class = 'btn btn-primary' name = 'PSGAwaySocks'>
                             </div>
@@ -1094,8 +1094,9 @@
                                             <option value = '4'> Large </option>
                                             <option value = '5'> Extra Large </option>
                                             <option value = '6'> Extra Extra Large </option>
-                                        </select></span></p>
-                                <p> Price: &euro;". $PSG3Shirt["Price"] ."</p>
+                                        </select>
+                                <p><span> Was: </span><span><s>&euro;". $PSG3Shirt["OldPrice"] ."</s></span></p>
+                                <p>Price: &euro;". $PSG3Shirt["Price"] ."</p>
                                 <input type = 'submit' value = 'Add to My Cart' class = 'btn btn-primary' name = 'PSG3Shirt'>
                             </div>
                         </div>
@@ -1121,7 +1122,7 @@
                                             <option value = '5'> Extra Large </option>
                                             <option value = '6'> Extra Extra Large </option>
                                         </select>
-                                <p><span> Was: </span><span><s>&euro;18.50</s></span></p>
+                                <p><span> Was: </span><span><s>&euro;". $PSG3Shorts["OldPrice"] ."</s></span></p>
                                 <p> Price: &euro;". $PSG3Shorts["Price"] ."</p>
                                 <input type = 'submit' value = 'Add to My Cart' class = 'btn btn-primary' name = 'PSG3Shorts'>
                             </div>
@@ -1148,7 +1149,7 @@
                                             <option value = '5'> Extra Large </option>
                                             <option value = '6'> Extra Extra Large </option>
                                         </select>
-                                    <p><span> Was: </span><span><s>&euro;13.50</s></span></p>
+                                    <p><span> Was: </span><span><s>&euro;". $PSG3Socks["OldPrice"] ."</s></span></p>
                                     <p> Price: &euro;". $PSG3Socks["Price"] ."</p>
                                     <input type = 'submit' value = 'Add to My Cart' class = 'btn btn-primary' name = 'PSG3Socks'>
                                 </div>
@@ -1182,7 +1183,7 @@
                                     <option value = '5'> Extra Large </option>
                                     <option value = '6'> Extra Extra Large </option>
                                 </select>
-                                <p><span> Was: </span><span><s>&euro;25.00</s></span></p>
+                                <p><span> Was: </span><span><s>&euro;". $ManCHomeShirt["OldPrice"] ."</s></span></p>
                                 <p> Price: &euro;". $ManCHomeShirt["Price"] ."</p>
                                 <input type = 'submit' value = 'Add to My Cart' class = 'btn btn-primary' name = 'ManCHomeShirt'>
                             </div>
@@ -1209,7 +1210,7 @@
                                     <option value = '5'> Extra Large </option>
                                     <option value = '6'> Extra Extra Large </option>
                                 </select>
-                                <p><span> Was: </span><span><s>&euro;18.50</s></span></p>
+                                <p><span> Was: </span><span><s>&euro;". $ManCHomeShorts["OldPrice"] ."</s></span></p>
                                 <p> Price: &euro;". $ManCHomeShorts["Price"] ."</p>
                                 <input type = 'submit' value = 'Add to My Cart' class = 'btn btn-primary' name = 'ManCHomeShorts'>
                             </div>
@@ -1236,7 +1237,7 @@
                                     <option value = '5'> Extra Large </option>
                                     <option value = '6'> Extra Extra Large </option>
                                 </select>
-                                <p><span> Was: </span><span><s>&euro;14.00</s></span></p>
+                                <p><span> Was: </span><span><s>&euro;". $ManCHomeSocks["OldPrice"] ."</s></span></p>
                                 <p> Price: &euro;". $ManCHomeSocks["Price"] ."</p>
                                 <input type = 'submit' value = 'Add to My Cart' class = 'btn btn-primary' name = 'ManCHomeSocks'>
                             </div>
@@ -1267,7 +1268,7 @@
                                     <option value = '5'> Extra Large </option>
                                     <option value = '6'> Extra Extra Large </option>
                                 </select>
-                                <p><span> Was: </span><span><s>&euro;21.00</s></span></p>
+                                <p><span> Was: </span><span><s>&euro;". $ManCAwayShirt["OldPrice"] ."</s></span></p>
                                 <p> Price: &euro;". $ManCAwayShirt["Price"] ."</p>
                                 <input type = 'submit' value = 'Add to My Cart' class = 'btn btn-primary' name = 'ManCAwayShirt'>
                             </div>
@@ -1294,7 +1295,7 @@
                                     <option value = '5'> Extra Large </option>
                                     <option value = '6'> Extra Extra Large </option>
                                 </select>
-                                <p><span> Was: </span><span><s>&euro;21.50</s></span></p>
+                                <p><span> Was: </span><span><s>&euro;". $ManCAwayShorts["OldPrice"] ."</s></span></p>
                                 <p> Price: &euro;". $ManCAwayShorts["Price"] ."</p>
                                 <input type = 'submit' value = 'Add to My Cart' class = 'btn btn-primary' name = 'ManCAwayShorts'>
                             </div>
@@ -1321,7 +1322,7 @@
                                     <option value = '5'> Extra Large </option>
                                     <option value = '6'> Extra Extra Large </option>
                                 </select>
-                                <p><span> Was: </span><span><s>&euro;13.50</s></span></p>
+                                <p><span> Was: </span><span><s>&euro;". $ManCAwaySocks["OldPrice"] ."</s></span></p>
                                 <p> Price: &euro;". $ManCAwaySocks["Price"] ."</p>
                                 <input type = 'submit' value = 'Add to My Cart' class = 'btn btn-primary' name = 'ManCAwaySocks'>
                             </div>
@@ -1352,7 +1353,7 @@
                                     <option value = '5'> Extra Large </option>
                                     <option value = '6'> Extra Extra Large </option>
                                 </select>
-                                <p><span> Was: </span><span><s>&euro;21.50</s></span></p>
+                                <p><span> Was: </span><span><s>&euro;". $ManC3Shirt["OldPrice"]. "</s></span></p>
                                 <p> Price: &euro;". $ManC3Shirt["Price"]. "</p>
                                 <input type = 'submit' value = 'Add to My Cart' class = 'btn btn-primary' name = 'ManC3Shirt'>
                             </div>
@@ -1379,7 +1380,7 @@
                                     <option value = '5'> Extra Large </option>
                                     <option value = '6'> Extra Extra Large </option>
                                 </select>
-                                    <p><span> Was: </span><span><s>&euro;17.50</s></span></p>
+                                    <p><span> Was: </span><span><s>&euro;". $ManC3Shorts["OldPrice"] ."</s></span></p>
                                     <p> Price: &euro;". $ManC3Shorts["Price"] ."</p>
                                     <input type = 'submit' value = 'Add to My Cart' class = 'btn btn-primary' name = 'ManC3Shorts'>
                                 </div>
@@ -1406,7 +1407,7 @@
                                     <option value = '5'> Extra Large </option>
                                     <option value = '6'> Extra Extra Large </option>
                                 </select>
-                                    <p><span> Was: </span><span><s>&euro;13.50</s></span></p>
+                                    <p><span> Was: </span><span><s>&euro;". $ManC3Socks["OldPrice"] ."</s></span></p>
                                     <p> Price: &euro;". $ManC3Socks["Price"] ."</p>
                                     <input type = 'submit' value = 'Add to My Cart' class = 'btn btn-primary' name = 'ManC3Socks'>
                                 </div>
@@ -1440,7 +1441,7 @@
                                     <option value = '5'> Extra Large </option>
                                     <option value = '6'> Extra Extra Large </option>
                                 </select>
-                                <p><span> Was: </span><span><s>&euro;22.50</s></span></p>
+                                <p><span> Was: </span><span><s>&euro;". $RealHomeShirt["OldPrice"] ."</s></span></p>
                                 <p> Price: &euro;". $RealHomeShirt["Price"] ."</p>
                                 <input type = 'submit' value = 'Add to My Cart' class = 'btn btn-primary' name = 'RealHomeShirt'>
                             </div>
@@ -1467,7 +1468,7 @@
                                     <option value = '5'> Extra Large </option>
                                     <option value = '6'> Extra Extra Large </option>
                                 </select>
-                                <p><span> Was: </span><span><s>&euro;17.50</s></span></p>
+                                <p><span> Was: </span><span><s>&euro;". $RealHomeShorts["OldPrice"] ."</s></span></p>
                                 <p> Price: &euro;". $RealHomeShorts["Price"] ."</p>
                                 <input type = 'submit' value = 'Add to My Cart' class = 'btn btn-primary' name = 'RealHomeShorts'>
                             </div>
@@ -1494,8 +1495,8 @@
                                     <option value = '5'> Extra Large </option>
                                     <option value = '6'> Extra Extra Large </option>
                                 </select>
-                                    <p><span> Was: </span><span><s>&euro;13.50</s></span></p>
-                                    <p> Price: &euro; 15.00</p>
+                                    <p><span> Was: </span><span><s>&euro;". $RealHomeSocks["OldPrice"] ."</s></span></p>
+                                    <p> Price: &euro;". $RealHomeSocks["Price"] ."</p>
                                     <input type = 'submit' value = 'Add to My Cart' class = 'btn btn-primary' name = 'RealHomeSocks'>
                                 </div>
                             </div>
@@ -1525,7 +1526,7 @@
                                     <option value = '5'> Extra Large </option>
                                     <option value = '6'> Extra Extra Large </option>
                                 </select>
-                                <p><span> Was: </span><span><s>&euro;22.50</s></span></p>
+                                <p><span> Was: </span><span><s>&euro;". $RealAwayShirt["OldPrice"] ."</s></span></p>
                                 <p> Price: &euro;". $RealAwayShirt["Price"] ."</p>
                                 <input type = 'submit' value = 'Add to My Cart' class = 'btn btn-primary' name = 'RealAwayShirt'>
                             </div>
@@ -1552,7 +1553,7 @@
                                     <option value = '5'> Extra Large </option>
                                     <option value = '6'> Extra Extra Large </option>
                                 </select>
-                                <p><span> Was: </span><span><s>&euro;17.50</s></span></p>
+                                <p><span> Was: </span><span><s>&euro;". $RealAwayShorts["OldPrice"] ."</s></span></p>
                                 <p> Price: &euro;". $RealAwayShorts["Price"] ."</p>
                                 <input type = 'submit' value = 'Add to My Cart' class = 'btn btn-primary' name = 'RealAwayShorts'>
                             </div>
@@ -1579,7 +1580,7 @@
                                         <option value = '5'> Extra Large </option>
                                         <option value = '6'> Extra Extra Large </option>
                                     </select>
-                                    <p><span> Was: </span><span><s>&euro;13.50</s></span></p>
+                                    <p><span> Was: </span><span><s>&euro;". $RealAwaySocks["OldPrice"] ."</s></span></p>
                                     <p> Price: &euro;". $RealAwaySocks["Price"] ."</p>
                                     <input type = 'submit' value = 'Add to My Cart' class = 'btn btn-primary' name = 'RealAwaySocks'>
                                 </div>
@@ -1610,7 +1611,7 @@
                                     <option value = '5'> Extra Large </option>
                                     <option value = '6'> Extra Extra Large </option>
                                 </select>
-                                <p><span> Was: </span><span><s>&euro;22.50</s></span></p>
+                                <p><span> Was: </span><span><s>&euro;". $Real3Shirt["OldPrice"] ."</s></span></p>
                                 <p> Price: &euro;". $Real3Shirt["Price"] ."</p>
                                 <input type = 'submit' value = 'Add to My Cart' class = 'btn btn-primary' name = 'Real3Shirt'>
                             </div>
@@ -1637,8 +1638,8 @@
                                     <option value = '5'> Extra Large </option>
                                     <option value = '6'> Extra Extra Large </option>
                                 </select>
-                                <p><span> Was: </span><span><s>&euro;40.00</s></span></p>
-                                <p> Price: &euro; 30.00</p>
+                                <p><span> Was: </span><span><s>&euro;". $Real3Shorts["OldPrice"] ."</s></span></p>
+                                <p> Price: &euro; ". $Real3Shorts["Price"] ."</p>
                                 <input type = 'submit' value = 'Add to My Cart' class = 'btn btn-primary' name = 'Real3Shorts'>
                             </div>
                         </div>
@@ -1664,7 +1665,7 @@
                                     <option value = '5'> Extra Large </option>
                                     <option value = '6'> Extra Extra Large </option>
                                 </select>
-                                <p><span> Was: </span><span><s>&euro;13.50</s></span></p>
+                                <p><span> Was: </span><span><s>&euro;". $Real3Socks["OldPrice"] ."</s></span></p>
                                 <p> Price: &euro;". $Real3Socks["Price"] ."</p>
                                 <input type = 'submit' value = 'Add to My Cart' class = 'btn btn-primary' name = 'Real3Socks'>
                             </div>
