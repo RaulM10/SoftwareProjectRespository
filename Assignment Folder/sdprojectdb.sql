@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.0
+-- version 4.7.0
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1:3306
--- Generation Time: May 15, 2018 at 09:15 PM
--- Server version: 10.1.31-MariaDB
--- PHP Version: 7.2.4
+-- Host: 127.0.0.1:3307
+-- Generation Time: May 16, 2018 at 10:46 AM
+-- Server version: 10.1.22-MariaDB
+-- PHP Version: 7.1.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -34,6 +34,15 @@ CREATE TABLE `account` (
   `Password` varchar(260) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `account`
+--
+
+INSERT INTO `account` (`Account_Id`, `Username`, `Password`) VALUES
+(1, '$2y$10$CQOqtsJw53SpzwaI1Clb1.WHzjFO7XjDtadnJJrlWdlFPLnxFeESm', '$2y$10$W7vDEHgiC.AH.o37Oveny.s57G4RNw5UFbz63Uk.CGnvhKxo01c4q'),
+(2, '$2y$10$7AQN4P3RTjj6PP48uw1TsuoDsshU3RY0foIHCWXXonVMjJv2Bn5oG', '$2y$10$iiMdaScDmQUs8jlBUArb6.IqxG1z9vwMgu8Yl7BELb0CZrpTxVO0S'),
+(3, '$2y$10$590phInj5koctFkVwdeVxeCOyyVE.L0IFffVEy60ALGPEMq0EjgkC', '$2y$10$xieyjoYxFlI0u74g0tBCfeeWYrrikT45HE6ioCKmL7zQxT1EukTwW');
+
 -- --------------------------------------------------------
 
 --
@@ -57,6 +66,18 @@ INSERT INTO `cloth` (`Cloth_Id`, `Type`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `contact_us_queries`
+--
+
+CREATE TABLE `contact_us_queries` (
+  `Query_Id` int(11) NOT NULL,
+  `Query_Description` varchar(1000) NOT NULL,
+  `Account_Id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `country`
 --
 
@@ -64,6 +85,15 @@ CREATE TABLE `country` (
   `Country_Id` int(11) NOT NULL,
   `Name` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `country`
+--
+
+INSERT INTO `country` (`Country_Id`, `Name`) VALUES
+(1, 'Malta'),
+(2, ''),
+(3, 'knfdkfn');
 
 -- --------------------------------------------------------
 
@@ -125,6 +155,14 @@ CREATE TABLE `order_table` (
   `Account_Id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `order_table`
+--
+
+INSERT INTO `order_table` (`Order_Id`, `Account_Id`) VALUES
+(1, 1),
+(2, 3);
+
 -- --------------------------------------------------------
 
 --
@@ -146,7 +184,7 @@ CREATE TABLE `product` (
 --
 
 INSERT INTO `product` (`Product_Id`, `Price`, `OldPrice`, `URL`, `Cloth_Id`, `Kit_Id`, `Team_Id`) VALUES
-(1, 25, 82, 'https://www.soccerpro.com/wp-content/uploads/2018/01/az8708_adidas_juventus_authentic_home_jsy_01.jpg', 1, 1, 1),
+(1, 25, 28, 'https://www.soccerpro.com/wp-content/uploads/2018/01/az8708_adidas_juventus_authentic_home_jsy_01.jpg', 1, 1, 1),
 (2, 15, 51615, 'https://www.ebaysoccer.com/u_file/1712/products/16/44b7b6de7c.png', 2, 1, 1),
 (3, 10, 510, 'https://store.juventus.com/data/store/product/1/12940/product.jpg', 3, 1, 1),
 (4, 25, 1520, 'https://store.juventus.com/data/store/product/1/14428/product.jpg', 1, 2, 1),
@@ -262,6 +300,15 @@ CREATE TABLE `town` (
   `Country_Id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `town`
+--
+
+INSERT INTO `town` (`Town_Id`, `Name`, `Country_Id`) VALUES
+(1, 'Fgura', 1),
+(2, '', 2),
+(3, 'sfbdjhfb', 3);
+
 -- --------------------------------------------------------
 
 --
@@ -276,6 +323,15 @@ CREATE TABLE `user` (
   `Town_Id` int(11) NOT NULL,
   `Account_Id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `user`
+--
+
+INSERT INTO `user` (`User_Id`, `Name`, `Surname`, `Email_Address`, `Town_Id`, `Account_Id`) VALUES
+(1, 'Raul', 'Mifsud', 'rau.mifsud@hotmai.com', 1, 1),
+(2, 'Guzi', 'Zejza', '', 2, 2),
+(3, 'Guzi', 'Zejzs', 'sdgsfsaf@sdsdfsd.com', 3, 3);
 
 -- --------------------------------------------------------
 
@@ -304,6 +360,13 @@ ALTER TABLE `account`
 --
 ALTER TABLE `cloth`
   ADD PRIMARY KEY (`Cloth_Id`);
+
+--
+-- Indexes for table `contact_us_queries`
+--
+ALTER TABLE `contact_us_queries`
+  ADD PRIMARY KEY (`Query_Id`),
+  ADD KEY `Account_Id` (`Account_Id`);
 
 --
 -- Indexes for table `country`
@@ -398,83 +461,81 @@ ALTER TABLE `website_review`
 -- AUTO_INCREMENT for table `account`
 --
 ALTER TABLE `account`
-  MODIFY `Account_Id` int(11) NOT NULL AUTO_INCREMENT;
-
+  MODIFY `Account_Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `cloth`
 --
 ALTER TABLE `cloth`
   MODIFY `Cloth_Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
+--
+-- AUTO_INCREMENT for table `contact_us_queries`
+--
+ALTER TABLE `contact_us_queries`
+  MODIFY `Query_Id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `country`
 --
 ALTER TABLE `country`
-  MODIFY `Country_Id` int(11) NOT NULL AUTO_INCREMENT;
-
+  MODIFY `Country_Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `kit`
 --
 ALTER TABLE `kit`
   MODIFY `Kit_Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
 --
 -- AUTO_INCREMENT for table `manager`
 --
 ALTER TABLE `manager`
   MODIFY `Manager_Id` int(11) NOT NULL AUTO_INCREMENT;
-
 --
 -- AUTO_INCREMENT for table `order_table`
 --
 ALTER TABLE `order_table`
-  MODIFY `Order_Id` int(11) NOT NULL AUTO_INCREMENT;
-
+  MODIFY `Order_Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `product`
 --
 ALTER TABLE `product`
   MODIFY `Product_Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
-
 --
 -- AUTO_INCREMENT for table `product_review`
 --
 ALTER TABLE `product_review`
   MODIFY `Review_Id` int(11) NOT NULL AUTO_INCREMENT;
-
 --
 -- AUTO_INCREMENT for table `size`
 --
 ALTER TABLE `size`
   MODIFY `Size_Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
-
 --
 -- AUTO_INCREMENT for table `team`
 --
 ALTER TABLE `team`
   MODIFY `Team_Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
-
 --
 -- AUTO_INCREMENT for table `town`
 --
 ALTER TABLE `town`
-  MODIFY `Town_Id` int(11) NOT NULL AUTO_INCREMENT;
-
+  MODIFY `Town_Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `User_Id` int(11) NOT NULL AUTO_INCREMENT;
-
+  MODIFY `User_Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `website_review`
 --
 ALTER TABLE `website_review`
   MODIFY `Review_Id` int(11) NOT NULL AUTO_INCREMENT;
-
 --
 -- Constraints for dumped tables
 --
+
+--
+-- Constraints for table `contact_us_queries`
+--
+ALTER TABLE `contact_us_queries`
+  ADD CONSTRAINT `contact_us_queries_ibfk_1` FOREIGN KEY (`Account_Id`) REFERENCES `account` (`Account_Id`);
 
 --
 -- Constraints for table `manager`
