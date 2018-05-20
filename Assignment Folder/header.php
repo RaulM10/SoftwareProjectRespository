@@ -12,7 +12,7 @@
                     <body>
                         <nav class = 'navbar navbar-expand-lg navbar-light' style = 'background-color: #006994; padding: 40px;'>
                         <span id = 'LoggedInUsername'><a href = '#'>  You are Logged In as ". $_SESSION["Username"] ."</a></span>
-                        <a href = '#'><img src = '#' width = '150' height = '100' id = 'MainLogo' alt = 'Main Icon'></a>
+                        <a href = '#'><img src = 'Images/Logo.png' id = 'MainLogo' alt = 'Main Icon'></a>
                         <a class = 'navbar-brand text-danger' href = '#'>Football Sportswear</a>
                         <form class = 'form-inline ml-5' action = 'searchbar.php' method = 'post'>
                             <input class = 'form-control mr-3' type = 'search' placeholder = 'Search' aria-label = 'Search' name = 'SearchField'>

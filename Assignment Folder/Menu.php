@@ -970,15 +970,15 @@
                                 <label for = 'quantity'> Quantity: </label>
                                 <input type = 'number' name = 'PSGHomeSocksQuantity'><br/>
                                 <label> Size: </label>
-                                        <select name = 'PSGHomeSocksSelect'>
-                                            <option value = '0' selected> Select Size </option>
-                                            <option value = '1'> Extra Small </option>
-                                            <option value = '2'> Small </option>
-                                            <option value = '3'> Medium </option>
-                                            <option value = '4'> Large </option>
-                                            <option value = '5'> Extra Large </option>
-                                            <option value = '6'> Extra Extra Large </option>
-                                        </select>
+                                <select name = 'PSGHomeSocksSelect'>
+                                    <option value = '0' selected> Select Size </option>
+                                    <option value = '1'> Extra Small </option>
+                                    <option value = '2'> Small </option>
+                                    <option value = '3'> Medium </option>
+                                    <option value = '4'> Large </option>
+                                    <option value = '5'> Extra Large </option>
+                                    <option value = '6'> Extra Extra Large </option>
+                                </select>
                                 <p><span> Was: </span><span><s>&euro;". $PSGHomeSocks["OldPrice"] ."</s></span></p>
                                 <p> Price: &euro;". $PSGHomeSocks["Price"] ."</p>
                                 <input type = 'submit' value = 'Add to My Cart' class = 'btn btn-primary' name = 'PSGHomeSocks'>
@@ -1284,7 +1284,7 @@
                                 <h1>Shorts 2017/2018</h1>
                                 <br/>
                                 <label for = 'quantity'> Quantity: </label>
-                                <input type = 'number' name = 'ManCAwaySjortsQuantity'><br/>
+                                <input type = 'number' name = 'ManCAwayShortsQuantity'><br/>
                                 <label> Size: </label>
                                 <select name = 'ManCAwayShortsSelect'>
                                     <option value = '0' selected> Select Size </option>

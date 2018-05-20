@@ -8,7 +8,9 @@
 
 
 #MainLogo{
-    margin-left: 200px;
+    margin-left: 100px;
+    width: 250px;
+    height: 125px;
 }
 
 .ContactPhoneButton, .FeedbackButton, .MyCartButton, .HelpButton, .LogOutButton, .ImagesButton, .ProductsButton{

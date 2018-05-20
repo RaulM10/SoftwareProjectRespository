@@ -1,7 +1,7 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
-<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="E54C4D63-376A-CDE6-7DFB-5E7C7FB63DC5" name="ORDER_TABLE">
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="32C2D586-F19F-A2E0-BD1E-46FF31BD1559" name="CONTACT_US_QUERIES">
 <createdBy>b42079</createdBy>
-<createdTime>2018-04-12 06:38:17 UTC</createdTime>
+<createdTime>2018-05-17 06:23:41 UTC</createdTime>
 <ownerDesignName>DatabaseERD</ownerDesignName>
 <engineerTo>
 <item key="F786A4E8-575F-E2B4-6C78-16106FB67685" value="true"/>
@@ -15,9 +15,9 @@
 <minVolumes>0</minVolumes>
 <normalForm>Third</normalForm>
 <attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
-<Attribute name="Order_ID" id="24A99FC3-2B2A-1A99-31F6-54F90EA44FD1">
+<Attribute name="Query_Id" id="4D87195E-4A76-9269-61FE-6276F29ECF5A">
 <createdBy>b42079</createdBy>
-<createdTime>2018-04-12 06:38:46 UTC</createdTime>
+<createdTime>2018-05-17 06:24:02 UTC</createdTime>
 <ownerDesignName>DatabaseERD</ownerDesignName>
 <engineerTo>
 <item key="F786A4E8-575F-E2B4-6C78-16106FB67685" value="true"/>
@@ -27,10 +27,23 @@
 <logicalDatatype>LOGDT011</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="Account_ID" id="69B79229-83B3-E0C9-1757-0807F5A5E3BE">
+<Attribute name="Query_Description" id="F70C4645-1B31-B73F-B832-9B1A48BE1A5C">
 <createdBy>b42079</createdBy>
-<createdTime>2018-04-12 06:39:30 UTC</createdTime>
-<generatorID>E32F6DBC-8F75-CE9A-2DA8-C3447948E3BE</generatorID>
+<createdTime>2018-05-17 06:24:22 UTC</createdTime>
+<ownerDesignName>DatabaseERD</ownerDesignName>
+<engineerTo>
+<item key="F786A4E8-575F-E2B4-6C78-16106FB67685" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>1000</dataTypeSize>
+<ownDataTypeParameters>1000,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Account_ID" id="89C3D4A1-1BDA-A23C-E7D7-5DB4E2545043">
+<createdBy>b42079</createdBy>
+<createdTime>2018-05-17 06:25:02 UTC</createdTime>
+<generatorID>E1552E53-0959-289C-1A68-F95F48DF3C0A</generatorID>
 <ownerDesignName>DatabaseERD</ownerDesignName>
 <engineerTo>
 <item key="F786A4E8-575F-E2B4-6C78-16106FB67685" value="true"/>
@@ -43,16 +56,16 @@
 </Attribute>
 </attributes>
 <identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
-<identifier id="0CACE890-EE67-5899-F712-988ED6A8D9D3" name="Order PK">
+<identifier id="91159FE4-E571-D075-9E21-1196BE345E6D" name="Contact_Us_Queries PK">
 <createdBy>b42079</createdBy>
-<createdTime>2018-04-12 06:38:50 UTC</createdTime>
+<createdTime>2018-05-17 06:24:12 UTC</createdTime>
 <ownerDesignName>DatabaseERD</ownerDesignName>
 <engineerTo>
 <item key="F786A4E8-575F-E2B4-6C78-16106FB67685" value="true"/>
 </engineerTo>
 <pk>true</pk>
 <usedAttributes>
-<attributeRef>24A99FC3-2B2A-1A99-31F6-54F90EA44FD1</attributeRef>
+<attributeRef>4D87195E-4A76-9269-61FE-6276F29ECF5A</attributeRef>
 </usedAttributes>
 </identifier>
 </identifiers>

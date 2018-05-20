@@ -438,7 +438,7 @@
                 <div class = "col">
                 </div>
                 <div class = "col">
-                    <input type = "password" id = "RptPassword" placeholder = "Repeat Password" class = "form-control" name = "RegPassword2">
+                    <input type = "password" id = "RptPassword" placeholder = "Confirm Password" class = "form-control" name = "RegPassword2">
                 </div>
             </div>
             <input type = "submit" value = "Register" id = "RegiterButton" class = "btn btn-outline-light" name = "register">

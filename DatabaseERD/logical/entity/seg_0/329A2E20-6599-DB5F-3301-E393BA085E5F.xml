@@ -27,7 +27,7 @@
 <logicalDatatype>LOGDT011</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="Size" id="D1D24E83-3457-06BD-9CDD-8654BBC9B293">
+<Attribute name="Name" id="D1D24E83-3457-06BD-9CDD-8654BBC9B293">
 <createdBy>b42079</createdBy>
 <createdTime>2018-04-26 07:02:21 UTC</createdTime>
 <ownerDesignName>DatabaseERD</ownerDesignName>
