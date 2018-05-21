@@ -36,7 +36,7 @@
                                 <div id = 'ProductInfo'>
                                     <h1>$ProdKitName 2017/2018</h1>
                                     <br/>
-                                    <p><span> Was: </span><span><s>&euro;18.00</s></span></p>
+                                    <p><span> Was: </span><span><s>&euro;". $Product["OldPrice"] ."</s></span></p>
                                     <p> Price: &euro;". $Product["Price"] ." </p>
                                 </div>
                         </div></a>
@@ -75,7 +75,7 @@
                                 <div id = 'ProductInfo'>
                                     <h1>$ProdKitName 2017/2018</h1>
                                     <br/>
-                                    <p><span> Was: </span><span><s>&euro;18.00</s></span></p>
+                                    <p><span> Was: </span><span><s>&euro;>". $Product["OldPrice"] ."</s></span></p>
                                     <p> Price: &euro;". $Product["Price"] ." </p>
                                 </div>
                         </div></a>
@@ -94,7 +94,6 @@
         $TeamCategoriesArray = array();
         while($TeamCategories = mysqli_fetch_assoc($GetTeamCategoriesResult)){
             $TeamCategoriesArray[] = $TeamCategories["Name"];
-            var_dump($TeamCategoriesArray);
         }
         if(in_array($SearchWord, $TeamCategoriesArray)){
             $GetId = "SELECT * FROM team WHERE Name = '$SearchWord'";
@@ -115,12 +114,24 @@
                     case 3: $ProdKitName = "Socks";
                             break;
                 }
-                 echo "<a href = 'Menu.php'><div id = 'Product'>
+                switch($SearchWord){
+                    case "Juventus": $DivName = "Juve";
+                                    break;
+                    case "Bayern Munich": $DivName = "Bayern";
+                                        break;
+                    case "Paris Saint Germain": $DivName = "PSG";
+                                            break;
+                    case "Mmanchester City": $DivName = "ManC";
+                                            break;
+                    case "Real Madrid": $DivName = "Real";
+                                    break;
+                }
+                 echo "<a href = 'Menu.php#". $DivName ."'><div id = 'Product'>
                             <img src = '". $Product["URL"] ."' alt = 'Search Image' id = 'Image'>
                             <div id = 'ProductInfo'>
                                 <h1> $ProdKitName 2017/2018</h1>
                                 <br/>
-                                <p><span> Was: </span><span><s>&euro;18.00</s></span></p>
+                                <p><span> Was: </span><span><s>&euro;". $Product["OldPrice"] ."</s></span></p>
                                 <p> Price: &euro;". $Product["Price"] ." </p>
                             </div>
                     </div></a>

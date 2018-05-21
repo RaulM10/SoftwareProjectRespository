@@ -1,18 +1,39 @@
+#BackgroundImage{
+    height: 100%;
+    width: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+body, html{
+    margin:0;
+    height: 100%;
+    overflow: hidden;
+}
+
 #Image{
     width: 25%;
-    margin: 0 25px;
+    margin: 250px 25px 0 25px;
     border: 1px solid;
     float: left;
 }
 
 .table{
     width: 71%;
-    margin: 200px 0 0 0;
+    margin-top: 450px;
 }
 
 
 
 #EditForm{
-    display: inline-block;
-    margin-top: 125px;
+    position: absolute;
+}
+
+h1{
+    position: absolute;
+    left: 40%;
+    right: 40%;
+    color: #ffffff;
+    margin: 20px 0;
 }

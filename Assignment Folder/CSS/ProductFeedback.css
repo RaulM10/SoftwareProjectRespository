@@ -1,17 +1,3 @@
-#BackgroundImage{
-    height: 100%;
-    width: 100%;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-
-body, html{
-    margin:0;
-    height: 100%;
-    overflow: hidden;
-}
-
 #LoggedInUsername a{
     color:  #ffffff;
 }
@@ -109,21 +95,52 @@ body, html{
     visibility: visible;   
 }
 
-#ContactUsForm{
-    position: absolute;
-    top: 350px;
-    left: 5%;
+#LeftSide{
+    background-color: #202020;  
+    height: 435px;
+    width: 20%;
+    float: left;
+}
+
+#Image{
+    width: 25%;
+    margin: 10px 15px;
+    border: 1px solid;
+    float: left;
+}
+
+.clear{
+    clear: left;
+}
+
+#MainContent{
+    width: 100%;
+}
+
+#Review{
+    width: 60%;
+    display: inline-block;
+}
+
+#RightSide{
+    background-color: #202020; 
+    height: 435px;
+    width: 20%;
+    float: right;
+}
+
+#ReviewProperties{
     text-align: center;
-    color: #ffffff;
 }
 
-a:link, a:hover{
-    color: #ffffff;
+#ReviewProperties{
+    margin-top: 125px;
 }
 
-.alert{
-    width: 400px;
-    position: absolute;
-    top: 900px;
-    left: 5%;
+#CommentsText{
+    margin: 15px 0;
+}
+
+#LeftSide p, #RightSide p{
+    color: #ffffff;
 }

@@ -2,13 +2,15 @@
     width: 100%;
 }
 
-#LoggedInUsername{
+#LoggedInUsername a{
     color:  #ffffff;
 }
 
 
 #MainLogo{
-    margin-left: 200px;
+    margin-left: 100px;
+    width: 250px;
+    height: 125px;
 }
 
 .ContactPhoneButton, .FeedbackButton, .MyCartButton, .HelpButton, .LogOutButton, .ImagesButton, .ProductsButton{
@@ -97,15 +99,6 @@
     visibility: visible;   
 }
 
-a{
-    color: #ffffff;
-}
-
-a:hover{
-    color: #ffffff;
-}
-
-
 #Image{
     width: 25%;
     margin: 25px 25px;
@@ -118,7 +111,7 @@ a:hover{
 }
 
 #table{
-    margin: 200px 0 0 0;
+    margin: 325px 0 0 0;
 }
 
 h1{
@@ -129,4 +122,8 @@ h1{
 
 .clear{
     clear: left;
+}
+
+a, a:hover{
+    color: #ffffff;
 }

@@ -1,0 +1,115 @@
+#BackgroundImage{
+    height: 100%;
+    width: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+body, html{
+    margin:0;
+    height: 100%;
+    overflow: hidden;
+}
+
+#LoginDiv{
+    position: absolute;
+    width: 35%;
+    left: 5%;
+    top: 400px;
+    height: 300px;
+ }
+
+#LoginDiv h1{
+    text-align: center;
+}
+
+#LoginDiv input[type = "text"], input[type = "password"], input[type = "submit"] {
+    display: block;
+    margin: 0 auto;
+}
+
+#LoginDiv input#LogUsername{
+    margin-top: 25px;
+}
+
+#LoginDiv input#LoginButton{
+    margin-top: 25px;
+}
+
+#PasswordForgot{
+    margin-left: 500px;
+}
+
+#TopLines{
+    position: absolute;
+    width: 1px;
+    left: 51%;
+    top: 355px;
+    color: #ffffff;
+}
+#OrWord{
+    position: absolute;
+    left: 50.5%;
+    top: 550px;
+    color: #ffffff;
+}
+#BottomLines{
+    position: absolute;
+    left: 51%;
+    width: 0;
+    top: 575px;
+    color: #ffffff;
+}
+
+#RegisterDiv{
+    position: absolute;
+    width: 35%;
+    right: 5%;
+    top: 400px;
+    height: 300px;
+}
+
+#RegisterDiv h1{
+    text-align: center;
+}
+
+#RegisterDiv .row{
+    margin-top: 25px;
+}
+
+#RegisterDiv input[type = "submit"]{
+    display: block;
+    margin: 0 auto;
+}
+
+#LastRow{
+    margin-bottom: 25px;
+}
+
+#SystemTitle{
+    position: absolute;
+    top: 5%;
+    color: #000073;
+    width: 100%;
+    text-align: center
+}
+
+input[type = "text"], input[type = "password"]{
+    font-family: inherit;
+}
+
+#RegisterDiv, #LoginDiv{
+    opacity: 0.5;
+    transition: opacity 1s ease-in-out;
+    -moz-transition: opacity 1s ease-in-out;
+    -webkit-transition: opacity 1s ease-in-out;
+}
+
+#RegisterDiv:hover, #LoginDiv:hover{
+    opacity: 1.0;
+    transition: opacity .55s ease-in-out;
+    -moz-transition: opacity .55s ease-in-out;
+    -webkit-transition: opacity .55s ease-in-out;
+}
+

@@ -12,8 +12,10 @@ body, html{
     overflow: hidden;
 }
 
-#LoggedInUsername a{
-    color:  #ffffff;
+
+
+#LoggedInUsername a, label, p{
+    color: #ffffff;
 }
 
 
@@ -109,21 +111,81 @@ body, html{
     visibility: visible;   
 }
 
-#ContactUsForm{
+#LoggedInUsername a:hover{
+    color: #ffffff;
+}
+
+#TopLines{
     position: absolute;
-    top: 350px;
-    left: 5%;
+    width: 1px;
+    left: 50%;
+    top: 355px;
+    color: #ffffff;
+}
+#OrWord{
+    position: absolute;
+    left: 49.5%;
+    top: 550px;
+    color: #ffffff;
+}
+#BottomLines{
+    position: absolute;
+    left: 50%;
+    width: 0;
+    top: 575px;
+    color: #ffffff;
+}
+
+#ProductFeedbackDiv{
+    position: absolute;
+    width: 35%;
+    right: 5%;
+    top: 250px;
+    height: 300px;
+}
+
+#ProductFeedbackDiv h1{
     text-align: center;
     color: #ffffff;
 }
 
-a:link, a:hover{
-    color: #ffffff;
+#WebsiteFeedbackDiv h1{
+    text-align: center;
 }
 
-.alert{
-    width: 400px;
+#ProductFeedbackDiv input[type = "submit"], #WebsiteFeedbackDiv input[type = "submit"]{
+    margin: 10px 0;
+}
+
+
+#WebsiteFeedbackDiv{
     position: absolute;
-    top: 900px;
+    width: 35%;
+    left: 5%;
+    top: 250px;
+    height: 300px;
+}
+
+#Producta{
+    color: blue;!impotant
+}
+
+#ProductValues{
+    text-align-last: center;
+}
+
+#ProductAlert{
+    width: 500px;
+    position: absolute;
+    top: 1050px;
+    right: 5%;
+}
+
+#WebsiteAlert{
+    width: 700px;
+    position: absolute;
+    top: 1025px;
     left: 5%;
 }
+
+

@@ -2,7 +2,7 @@
     width: 100%;
 }
 
-#LoggedInUsername{
+#LoggedInUsername a{
     color:  #ffffff;
 }
 
@@ -150,7 +150,7 @@ a:hover{
     display: inline-block;
 }
 
-#HomeDiv{
+#HomeDiv, #AwayDiv, #ThirdDiv{
     width: 100%;
 }
 

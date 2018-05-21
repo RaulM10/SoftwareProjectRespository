@@ -6,9 +6,9 @@
         echo "<!-- jQuery -->
               <script src='http://code.jquery.com/jquery-1.10.2.min.js'></script>
               <!-- Fotorama -->
-              <link href='CSS/fotorama.css' rel='stylesheet'>
-              <script src='Scripts/fotorama.js'></script>";
-        echo "<body>
+              <link href='CSS/GalleryImages.css' rel='stylesheet'>
+              <script src='Scripts/fotorama.js'></script>
+              <body>
                 <div class='fotorama' data-width='700' data-ratio='700/467' data-max-width='100%'
                     data-nav='thumbs'
                     data-keyboard='true'
@@ -27,13 +27,8 @@
                             <p> Paris Saint Germain F.C. Products: Click <a href = 'https://store.psg.fr/en' target = '_blank'>here</a></p>
                             <p> Manchester City F.C. Products: Click <a href = 'http://shop.mancity.com/stores/mancity/en' target = '_blank'>here</a></p>
                             <p> F.C. Real Madrid Products: Click <a href = 'http://shop.realmadrid.com/stores/realmadrid/en' target = '_blank'>here</a></p>
-                          
-                          
-                          
-                          
-                          
-                          
                           </div>
+                          <img src = 'https://www.delawarenorth.com/~/media/delawarenorth/images/venue%20images/international/wembly-stadium_t1.jpg?h=350&la=en&w=804' alt = 'Wembley Stadium' id = 'BackgroundImage'>
                         </body>
                     </html>";
     }

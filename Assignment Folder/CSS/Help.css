@@ -12,7 +12,7 @@ body, html{
     overflow: hidden;
 }
 
-#LoggedInUsername{
+#LoggedInUsername a{
     color:  #ffffff;
 }
 
@@ -109,9 +109,6 @@ body, html{
     visibility: visible;   
 }
 
-a{
-    color: #ffffff;
-}
 
 #AddingProduct, #Icons, #Rules{
     position: absolute;
