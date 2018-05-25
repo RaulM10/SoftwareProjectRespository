@@ -1,8 +1,15 @@
 <?php
     session_start();
-    $ChosenAccount = $ChosenOrder = $ChosenTownId = $ChosenTown = $ChosenCountryId = $ChosenCountry = "";
-    $TotalPrice = $TotalCountProducts = 0;
+    if(isset($_GET["Bought"])){
+        echo "<div class = 'alert alert-success' role = 'alert' id = 'WebsiteAlert'>
+                   Products were Succesfully Bought! They will be dlevered between 7 to 14 days.
+                   Thank you for shopping at Football Sportwear System!
+            </div>";    
+    }
+    else{}
     if(isset($_SESSION["Username"])){
+        $ChosenAccount = $ChosenOrder = $ChosenTownId = $ChosenTown = $ChosenCountryId = $ChosenCountry = "";
+        $TotalPrice = $TotalCountProducts = 0;
         include "connect.php";
         include "header.php";
         echo "<div id = 'MainContent'>";
@@ -14,6 +21,27 @@
                 $ChosenAccount = $AllUsernames["Account_Id"];
             }
         }
+        $GetTownId = "SELECT * FROM user WHERE Account_Id = '$ChosenAccount'";
+        $GetTown = mysqli_query($link, $GetTownId) or die (mysqli_error($link));
+        while($Town = mysqli_fetch_assoc($GetTown)){
+            $ChosenTownId = $Town["Town_Id"];
+        }
+        $GetTownName = "SELECT * FROM town WHERE Town_Id = '$ChosenTownId'";
+        $TownName = mysqli_query($link, $GetTownName);
+        while($Name = mysqli_fetch_assoc($TownName)){
+            $ChosenTown = $Name["Name"];
+            $ChosenCountryId = $Name["Country_Id"];
+            
+        }
+        $GetCountry = "SELECT * FROM country WHERE Country_Id * '$ChosenCountryId'";
+        $GetCName = mysqli_query($link, $GetCountry);
+        while($c = mysqli_fetch_assoc($GetCName)){
+            $ChosenCountry = $c["Name"];
+        }
+        
+        
+        
+        
         $GetOrderIdQuery = "SELECT Order_Id FROM order_table WHERE Account_Id = $ChosenAccount";
         $GetOrderIdResult = mysqli_query($link, $GetOrderIdQuery);
         while($GetOrderId = mysqli_fetch_assoc($GetOrderIdResult)){
@@ -50,6 +78,7 @@
     }
     echo "</div>";
     echo "<div id = 'ProductsSeparator'></div>
+            <div id = 'FinalStepInformation'>
             <p> Select type of Payment </p>
                       <input type='radio' id='PayPal' name='Payment'>
                       <label class='custom-control-label' for='PayPal'><img src = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSbouB_0hW27JIHoGkD5Y4Wlti8uhZNGYCuArAr2p1mOpOrktRj' alt = 'VISA Card'  id = 'PaymentImages'></label>
@@ -60,7 +89,8 @@
                   <br/>
                   <label for = 'DeliveryLocation'> Delivery Location: </label>
                   <input type = 'text' id = 'DeliveryLocation' placeholder = '$ChosenTown, $ChosenCountry' disabled><br/>
-                <a href = 'CheckoutPage.php'><input type = 'submit' value = 'Buy' class = 'btn btn-primary' name = 'BuyBtn' id = 'BuyBtn'></a>
+                <a href = 'BuyProducts.php?OrderId=". $ChosenOrder. "'><input type = 'submit' value = 'Buy' class = 'btn btn-primary' name = 'BuyBtn' id = 'BuyBtn'></a>
+            </div>
                 <link href = 'CSS/CheckoutPage.css' rel = 'stylesheet'>
                 <script src = 'https://code.jquery.com/jquery-3.2.1.slim.min.js' integrity='sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN' crossorigin='anonymous'></script>
                 <script src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js' integrity='sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh' crossorigin='anonymous'></script>

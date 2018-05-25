@@ -1,14 +1,10 @@
-function OnLoad(){
-    Notification.requestPermission();
-}
-
 var Message = {
-    PageInformationText : "This is the Catalogue Page"
+    PageInformationText : "This is the Contact Us Page"
 }
 
 var NotificationBubble = new Notification("- - - - - Welcome - - - - -", {
     body : Message.PageInformationText,
-    icon : "https://www.soccerpro.com/wp-content/uploads/2018/02/847255_456mes_nike_lionel_messi_barca_home_jsy_01.jpg",
+    icon : "http://cdn.shopify.com/s/files/1/0771/0055/products/lewandowski-9-poland-euro-2016-away-jersey_grande.jpg?v=1499433686",
     tag : "NEVERGRIND-CHAT-ALERT"
 });
 

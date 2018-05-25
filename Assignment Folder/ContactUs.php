@@ -2,8 +2,6 @@
     session_start();
     $EmailAddress = "";
     $AccountId = 0;
-
-
     if(isset($_SESSION["Username"])){
         include "connect.php";
         include "header.php";
@@ -37,7 +35,7 @@
             </form>
         <img src = 'https://cdn.mylittleadventure.com/4431/600x400/manchester-united-museum-and-stadium-tour-at-old-trafford-K3sonpF6.jpg' alt = 'Old Trafford' id = 'BackgroundImage'>
         <link rel = 'stylesheet' href = 'CSS/ContactUs.css'>
-        <!--<script src = 'Scripts/Menu.js'></script>-->
+        <script src = 'Scripts/ContactUs.js'></script>
         <script src = 'https://code.jquery.com/jquery-3.2.1.slim.min.js' integrity='sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN' crossorigin='anonymous'></script>
         <script src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js' integrity='sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh' crossorigin='anonymous'></script>
         <script src='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js' integrity='sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ' crossorigin='anonymous'></script>";

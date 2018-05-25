@@ -1,58 +1,62 @@
 <?php
     session_start();
-    include "header.php";
-    include "connect.php";
-    echo "<div id = 'MainContent'>";
-    $GetAllReviews = "SELECT * FROM website_review";
-    $GetAllReviewsResult = mysqli_query($link, $GetAllReviews);
-    while($Reviews = mysqli_fetch_assoc($GetAllReviewsResult)){
-        echo "<aside id = 'LeftSide'>
-                <p> Click <a href = 'Feedback.php'> here </a> to go to the Feedback Page </p>
-              </aside>
-                <div id = 'Reviews'>
-                <div id = 'ActualReviews'>
-                    <label for = 'RatingNum'> Rating: </label>";
-                    switch($Reviews["Rating"]){
-                        case 1:  echo "<span class = 'fas fa-star fa-2x'></span>
-                                       <span class = 'far fa-star fa-2x'></span>
-                                       <span class = 'far fa-star fa-2x'></span>
-                                       <span class = 'far fa-star fa-2x'></span>
-                                       <span class = 'far fa-star fa-2x'></span><br/>"; 
-                                      break;
-                        case 2:  echo "<span class = 'fas fa-star fa-2x'></span>
-                                       <span class = 'fas fa-star fa-2x'></span>
-                                       <span class = 'far fa-star fa-2x'></span>
-                                       <span class = 'far fa-star fa-2x'></span>
-                                       <span class = 'far fa-star fa-2x'></span><br/>"; 
-                                      break;
-                        case 3:  echo "<span class = 'fas fa-star fa-2x'></span>
-                                       <span class = 'fas fa-star fa-2x'></span>
-                                       <span class = 'fas fa-star fa-2x'></span>
-                                       <span class = 'far fa-star fa-2x'></span>
-                                       <span class = 'far fa-star fa-2x'></span><br/>"; 
-                                      break;
-                        case 4:  echo "<span class = 'fas fa-star fa-2x'></span>
-                                       <span class = 'fas fa-star fa-2x'></span>
-                                       <span class = 'fas fa-star fa-2x'></span>
-                                       <span class = 'fas fa-star fa-2x'></span>
-                                       <span class = 'far fa-star fa-2x'></span><br/>"; 
-                                      break;
-                        case 5:  echo "<span class = 'fas fa-star fa-2x'></span>
-                                       <span class = 'fas fa-star fa-2x'></span>
-                                       <span class = 'fas fa-star fa-2x'></span>
-                                       <span class = 'fas fa-star fa-2x'></span>
-                                       <span class = 'fas fa-star fa-2x'></span><br/>"; 
-                                      break;
-                    }
-                    echo "<label for = 'CommentsText'> Comments: </label>
-                          <span id = 'CommentsText'>'". $Reviews["Review"] ."'</span>
-                        </div>
-                        </div>
-                        <aside id = 'RightSide'>
-                            <p> Click <a href = 'ProductFeedback.php'> here </a> to go to the Product Reviews Page </p>
-                        </aside>
-                        <div class = 'clear'></div>";
-                    
+    if(isset($_SESSION["Username"])){
+        include "header.php";
+        include "connect.php";
+        echo "<div id = 'MainContent'>";
+        $GetAllReviews = "SELECT * FROM website_review";
+        $GetAllReviewsResult = mysqli_query($link, $GetAllReviews);
+        while($Reviews = mysqli_fetch_assoc($GetAllReviewsResult)){
+            echo "<aside id = 'LeftSide'>
+                    <p> Click <a href = 'Feedback.php'> here </a> to go to the Feedback Page </p>
+                  </aside>
+                    <div id = 'Reviews'>
+                    <div id = 'ActualReviews'>
+                        <label for = 'RatingNum'> Rating: </label>";
+                        switch($Reviews["Rating"]){
+                            case 1:  echo "<span class = 'fas fa-star fa-2x'></span>
+                                           <span class = 'far fa-star fa-2x'></span>
+                                           <span class = 'far fa-star fa-2x'></span>
+                                           <span class = 'far fa-star fa-2x'></span>
+                                           <span class = 'far fa-star fa-2x'></span><br/>"; 
+                                          break;
+                            case 2:  echo "<span class = 'fas fa-star fa-2x'></span>
+                                           <span class = 'fas fa-star fa-2x'></span>
+                                           <span class = 'far fa-star fa-2x'></span>
+                                           <span class = 'far fa-star fa-2x'></span>
+                                           <span class = 'far fa-star fa-2x'></span><br/>"; 
+                                          break;
+                            case 3:  echo "<span class = 'fas fa-star fa-2x'></span>
+                                           <span class = 'fas fa-star fa-2x'></span>
+                                           <span class = 'fas fa-star fa-2x'></span>
+                                           <span class = 'far fa-star fa-2x'></span>
+                                           <span class = 'far fa-star fa-2x'></span><br/>"; 
+                                          break;
+                            case 4:  echo "<span class = 'fas fa-star fa-2x'></span>
+                                           <span class = 'fas fa-star fa-2x'></span>
+                                           <span class = 'fas fa-star fa-2x'></span>
+                                           <span class = 'fas fa-star fa-2x'></span>
+                                           <span class = 'far fa-star fa-2x'></span><br/>"; 
+                                          break;
+                            case 5:  echo "<span class = 'fas fa-star fa-2x'></span>
+                                           <span class = 'fas fa-star fa-2x'></span>
+                                           <span class = 'fas fa-star fa-2x'></span>
+                                           <span class = 'fas fa-star fa-2x'></span>
+                                           <span class = 'fas fa-star fa-2x'></span><br/>"; 
+                                          break;
+                        }
+                        echo "<label for = 'CommentsText'> Comments: </label>
+                              <span id = 'CommentsText'>'". $Reviews["Review"] ."'</span>
+                            </div>
+                            </div>
+                            <aside id = 'RightSide'>
+                                <p> Click <a href = 'ProductFeedback.php'> here </a> to go to the Product Reviews Page </p>
+                            </aside>
+                            <div class = 'clear'></div>";
+        }
+    }
+    else{
+        header("Location: index.php");
     }
     
 

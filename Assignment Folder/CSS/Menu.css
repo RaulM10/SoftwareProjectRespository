@@ -101,14 +101,14 @@
 
 #RightSide{
     background-color: #202020; 
-    height: 16500px;
+    height: 20250px;
     width: 20%;
     float: right;
 }
 
 #LeftSide{
     background-color: #202020;  
-    height: 16500px;
+    height: 20250px;
     width: 20%;
     float: left;
     color: #ffffff;

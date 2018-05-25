@@ -669,7 +669,7 @@
                                         </select>
                                         <p><span> Was: </span><span><s>&euro;". $BayernHomeShirt["OldPrice"] ."</s></span></p>
                                         <p> Price: &euro;". $BayernHomeShirt["Price"] ."</p>
-                                        <input type = 'submit' value = 'Add to My Cart' class = 'btn btn-primary' name = 'BayernJerseyHome'>
+                                        <input type = 'submit' value = 'Add to My Cart' class = 'btn btn-primary' name = 'BayernHomeShirt'>
                                     </div>
                                 </div>
                                 <div class = 'clear'></div>";
@@ -754,7 +754,7 @@
                                 </select>
                                 <p><span> Was: </span><span><s>&euro;". $BayernAwayShirt["OldPrice"] ."</s></span></p>
                                 <p> Price: &euro;". $BayernAwayShirt["Price"] ."</p>
-                                <input type = 'submit' value = 'Add to My Cart' class = 'btn btn-primary' name = 'BayernAwayJersey'>
+                                <input type = 'submit' value = 'Add to My Cart' class = 'btn btn-primary' name = 'BayernAwayShirt'>
                             </div>
                         </div>
                         <div class = 'clear'></div>";
@@ -1688,7 +1688,7 @@
 }
     }
     else{
-        header("Location: FirstPage.php");
+        header("Location: index.php");
     }
 
     

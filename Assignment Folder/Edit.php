@@ -71,6 +71,9 @@
             <html>";
         }
     }
+    else{
+        header("Location: index.php");
+    }
     if(isset($_POST["UpdateButton"])){
         $SizeBool = $QuantityBool = false;
         $Size = $_POST["UpdateSelect"];

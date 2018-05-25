@@ -152,3 +152,11 @@
 #FinalStepInformation{
     text-align: center;
 }
+
+.alert{
+    position: absolute;
+    top: 425px;
+    left: 20%;
+    right: 20%;
+    text-align: center;
+}

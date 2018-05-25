@@ -1,6 +1,6 @@
 <?php
     session_start();
-    if(isset($_SESSION["Username"])){
+    if(isset($_SESSION["Username"])){ 
         include "header.php";
         if(isset($_POST["SearchButton"])){
             $KitId = $ProdKitId = $ProdKitName = "";
@@ -17,8 +17,8 @@
                 $GetIdResult = mysqli_query($link, $GetId) or die (mysqli_error($link));
                 while($Id = mysqli_fetch_assoc($GetIdResult)){
                     $KitId = $Id["Kit_Id"];
-
                 }
+                echo "<div id = 'MainContent'>";
                 $ProductQuery = "SELECT * FROM product WHERE Kit_Id = '$KitId'";
                 $ProductResult = mysqli_query($link, $ProductQuery);
                 while($Product = mysqli_fetch_assoc($ProductResult)){
@@ -31,7 +31,8 @@
                         case 3: $ProdKitName = "Socks";
                                 break;
                     }
-                     echo "<a href = 'Menu.php'><div id = 'Product'>
+                     echo "<aside id = 'LeftSide'></aside>
+                        <a href = 'Menu.php'><div id = 'Product'>
                                 <img src = '". $Product["URL"] ."' alt = 'Search Image' id = 'Image'>
                                 <div id = 'ProductInfo'>
                                     <h1>$ProdKitName 2017/2018</h1>
@@ -40,8 +41,10 @@
                                     <p> Price: &euro;". $Product["Price"] ." </p>
                                 </div>
                         </div></a>
+                        <aside id = 'RightSide'></aside>
                         <div class = 'clear'></div>";
                 }
+                echo "</div>";
             }
             else{}
             $ClothId = $ProdClothId = $ProdClothName = "";
@@ -56,8 +59,8 @@
                 $GetIdResult = mysqli_query($link, $GetId) or die (mysqli_error($link));
                 while($Id = mysqli_fetch_assoc($GetIdResult)){
                     $ClothId = $Id["Cloth_Id"];
-
                 }
+                echo "<div id = 'MainContent'>";
                 $ProductQuery = "SELECT * FROM product WHERE Cloth_Id = '$ClothId'";
                 $ProductResult = mysqli_query($link, $ProductQuery);
                 while($Product = mysqli_fetch_assoc($ProductResult)){
@@ -70,7 +73,8 @@
                         case 3: $ProdKitName = "Socks";
                                 break;
                     }
-                     echo "<a href = 'Menu.php'><div id = 'Product'>
+                     echo "<aside id = 'LeftSide'></aside>
+                            <a href = 'Menu.php'><div id = 'Product'>
                                 <img src = '". $Product["URL"] ."' alt = 'Search Image' id = 'Image'>
                                 <div id = 'ProductInfo'>
                                     <h1>$ProdKitName 2017/2018</h1>
@@ -79,16 +83,17 @@
                                     <p> Price: &euro;". $Product["Price"] ." </p>
                                 </div>
                         </div></a>
+                        <aside id = 'RightSide'></aside>
                         <div class = 'clear'></div>";
                 }
         
-        
+                echo "</div>";
         
         
         
         }
         else{}
-        $TeamId = $ProdTeamId = $ProdTeamName = "";
+        $TeamId = $ProdTeamId = $ProdTeamName = $DivName = "";
         $GetTeamCategories = "SELECT * FROM team";
         $GetTeamCategoriesResult = mysqli_query($link, $GetTeamCategories) or die (mysqli_error($link));
         $TeamCategoriesArray = array();
@@ -96,12 +101,24 @@
             $TeamCategoriesArray[] = $TeamCategories["Name"];
         }
         if(in_array($SearchWord, $TeamCategoriesArray)){
+            switch($SearchWord){
+                    case "Juventus": $DivName = "Juve";
+                                    break;
+                    case "Bayern Munich": $DivName = "Bayern";
+                                        break;
+                    case "Paris Saint Germain": $DivName = "PSG";
+                                            break;
+                    case "Mmanchester City": $DivName = "ManC";
+                                            break;
+                    case "Real Madrid": $DivName = "Real";
+                                    break;
+            }
             $GetId = "SELECT * FROM team WHERE Name = '$SearchWord'";
             $GetIdResult = mysqli_query($link, $GetId) or die (mysqli_error($link));
             while($Id = mysqli_fetch_assoc($GetIdResult)){
                 $TeamId = $Id["Team_Id"];
-                echo $TeamId;
             }
+            echo "<div id = 'MainContent'>";
             $ProductQuery = "SELECT * FROM product WHERE Team_Id = '$TeamId'";
             $ProductResult = mysqli_query($link, $ProductQuery) or die (mysqli_error($link));
             while($Product = mysqli_fetch_assoc($ProductResult)){
@@ -114,19 +131,10 @@
                     case 3: $ProdKitName = "Socks";
                             break;
                 }
-                switch($SearchWord){
-                    case "Juventus": $DivName = "Juve";
-                                    break;
-                    case "Bayern Munich": $DivName = "Bayern";
-                                        break;
-                    case "Paris Saint Germain": $DivName = "PSG";
-                                            break;
-                    case "Mmanchester City": $DivName = "ManC";
-                                            break;
-                    case "Real Madrid": $DivName = "Real";
-                                    break;
-                }
-                 echo "<a href = 'Menu.php#". $DivName ."'><div id = 'Product'>
+                
+                 echo "<aside id = 'LeftSide'></aside>
+                        <a href = 'Menu.php#". $DivName ."'>
+                        <div id = 'Product'>
                             <img src = '". $Product["URL"] ."' alt = 'Search Image' id = 'Image'>
                             <div id = 'ProductInfo'>
                                 <h1> $ProdKitName 2017/2018</h1>
@@ -135,8 +143,10 @@
                                 <p> Price: &euro;". $Product["Price"] ." </p>
                             </div>
                     </div></a>
+                    <aside id = 'RightSide'></aside>
                     <div class = 'clear'></div>";
             }
+            echo "</div>";
         
         }
         else{}

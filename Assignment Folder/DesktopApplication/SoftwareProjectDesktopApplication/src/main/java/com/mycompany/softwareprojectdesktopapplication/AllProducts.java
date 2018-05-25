@@ -232,6 +232,7 @@ public class AllProducts extends javax.swing.JFrame {
         jMenu1 = new javax.swing.JMenu();
         HelpMenuItem = new javax.swing.JMenuItem();
         SearchMenuItem = new javax.swing.JMenuItem();
+        Query = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
         LogOutMenuItem = new javax.swing.JMenuItem();
 
@@ -578,7 +579,20 @@ public class AllProducts extends javax.swing.JFrame {
         jMenu1.add(HelpMenuItem);
 
         SearchMenuItem.setText("Search");
+        SearchMenuItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SearchMenuItemActionPerformed(evt);
+            }
+        });
         jMenu1.add(SearchMenuItem);
+
+        Query.setText("Customer Queries");
+        Query.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                QueryActionPerformed(evt);
+            }
+        });
+        jMenu1.add(Query);
 
         jMenuBar1.add(jMenu1);
 
@@ -858,9 +872,7 @@ public class AllProducts extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(PSGHomeShirtPrice, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel24, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(4, 4, 4)))
+                            .addComponent(jLabel24, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(PSGHomeShortsPrice, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1054,6 +1066,20 @@ public class AllProducts extends javax.swing.JFrame {
         else{}
     }//GEN-LAST:event_LogOutMenuItemActionPerformed
 
+    private void SearchMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SearchMenuItemActionPerformed
+        // TODO add your handling code here:
+        Search SearchFrame = new Search();
+        SearchFrame.setVisible(true);
+        SearchFrame.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+    }//GEN-LAST:event_SearchMenuItemActionPerformed
+
+    private void QueryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_QueryActionPerformed
+        // TODO add your handling code here:
+        CustomersQueries Queries = new CustomersQueries();
+        Queries.setVisible(true);
+        Queries.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+    }//GEN-LAST:event_QueryActionPerformed
+
     
     /**
      * @param args the command line arguments
@@ -1132,6 +1158,7 @@ public class AllProducts extends javax.swing.JFrame {
     private javax.swing.JSpinner PSGHomeShirtPrice;
     private javax.swing.JSpinner PSGHomeShortsPrice;
     private javax.swing.JSpinner PSGHomeSocksPrice;
+    private javax.swing.JMenuItem Query;
     private javax.swing.JSpinner Real3ShirtPrice;
     private javax.swing.JSpinner Real3ShortsPrice;
     private javax.swing.JSpinner Real3SocksPrice;

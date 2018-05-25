@@ -1,5 +1,4 @@
 <?php
-    session_start();
     if(isset($_POST["register"])){
         $name = $_POST["name"];
         $surname = $_POST["surname"];

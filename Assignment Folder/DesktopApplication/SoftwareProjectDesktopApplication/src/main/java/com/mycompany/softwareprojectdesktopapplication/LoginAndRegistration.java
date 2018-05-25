@@ -530,7 +530,7 @@ public class LoginAndRegistration extends javax.swing.JFrame {
                     }
                     con.close();
                 } catch (Exception e) {
-                    System.out.println("Query Failed");
+                    System.out.println("Query Failed Sele Count 2 ");
                 }
             
                 if(CheckDoubleCountry){}
@@ -545,7 +545,7 @@ public class LoginAndRegistration extends javax.swing.JFrame {
                         }
                         con.close();
                     } catch (Exception e) {
-                        System.out.println("Query Failed");
+                        System.out.println("Query Failed Inse Country");
                     }
                 }
                 //----------------------------------------------------------------------------------------------------------------
@@ -561,7 +561,7 @@ public class LoginAndRegistration extends javax.swing.JFrame {
                     }
                     con.close();
                 } catch (Exception e) {
-                    System.out.println("Query Failed");
+                    System.out.println("Query Failed Sele Count");
                 }
                 try {      
                     Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/sdprojectdb", "root", "");
@@ -574,22 +574,23 @@ public class LoginAndRegistration extends javax.swing.JFrame {
                     }
                     con.close();
                 } catch (Exception e) {
-                    System.out.println("Query Failed");
+                    System.out.println("Query Failed Sele Name");
                 }
                 
                 if(CheckDoubleCity){}
                 else{
                     try {      
                         Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/sdprojectdb", "root", "");
-                        PreparedStatement stmt = con.prepareStatement("INSERT INTO town(Name) VALUES(?");
+                        PreparedStatement stmt = con.prepareStatement("INSERT INTO town(Name, Country_Id) VALUES(?, ?)");
                         stmt.setString(1, City);
+                        stmt.setInt(2, CountryId);
                         int RowsInserted = stmt.executeUpdate();
                         if (RowsInserted > 0){
                             System.out.println("City Added");
                         }
                         con.close();
                     } catch (Exception e) {
-                        System.out.println("Query Failed");
+                        System.out.println("Query Failed Insert City");
                     }
                 }
                 //----------------------------------------------------------------------------------------------------------------
@@ -605,7 +606,7 @@ public class LoginAndRegistration extends javax.swing.JFrame {
                         }
                         con.close();
                     } catch (SQLException e) {
-                        System.out.println("Query Failed");
+                        System.out.println("Query Failed Sele City");
                     }
                     try {      
                         Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/sdprojectdb", "root", "");

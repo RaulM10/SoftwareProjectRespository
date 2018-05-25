@@ -1,93 +1,98 @@
 <?php
     session_start();
-    include "connect.php";
-    include "header.php";
-    $AccountEmail = $EmailAddress = $FullName = "";
-    $Username = $_SESSION["Username"];
-    $GetAccountId = "SELECT * FROM account";
-    $GetAccountIdResult = mysqli_query($link, $GetAccountId);
-    while($Account = mysqli_fetch_assoc($GetAccountIdResult)){
-        if(password_verify($Username, $Account["Username"])){
-            $AccountEmail =  $Account["Account_Id"];
-        }
-    }
-    $GetEmail = "SELECT * FROM user WHERE Account_Id = $AccountEmail";
-    $GetEmailResult = mysqli_query($link, $GetEmail);
-    while($Email = mysqli_fetch_assoc($GetEmailResult)){
-        $EmailAddress = $Email["Email_Address"];
-    }    
-    
-    if(isset($_POST["WebsiteFeedbackBtn"])){
-        $RatingBool = $CommentsBool = false;
-        $Rating = $_POST["WebsiteFeedbackRating"];
-        $Comments = $_POST["WebsiteFeedbackTextArea"];
-        if($Rating == 0 || $Rating == ""){}
-        else{
-            $RatingBool = true;
-        }
-        if(strlen($Comments) == 0 || $Comments == ""){}
-        else{
-            $CommentsBool = true;
-        }
-        
-        if(!$RatingBool && !$CommentsBool){
-            echo "<div class = 'alert alert-danger' role = 'alert' id = 'WebsiteAlert'>
-                    There are missing data in the fields. All fields must not be empty!
-                  </div>";
-        }
-        
-        if($RatingBool && $CommentsBool){
-            $Comments = trim($Comments, " \t.");
-            $InsertQuery = "INSERT INTO website_review(Rating, Review) VALUES('$Rating', '$Comments')";
-            $InsertResult  = mysqli_query($link, $InsertQuery) or die (mysqli_error($link));
-            echo "<div class = 'alert alert-success' role = 'alert' id = 'WebsiteAlert'>
-                    Review Saved. Thank you for your co-operation!
-                  </div>"; 
-            
-        }
-    
-    }
-
-    if(isset($_POST["ProductFeedbackBtn"])){
-        $RatingBool = $CommentsBool = $ProductBool = false;
-        $Rating = $_POST["ProductFeedbackRating"];
-        $Comments = $_POST["ProductFeedbackTextArea"];
-        $ProductChosen = $_POST["ProductValues"];
-        if($Rating == 0 || $Rating == ""){
-            echo "<div class = 'alert alert-danger' role = 'alert' id = 'ProductAlert'>
-                    There are missing data in the fields. All fields must not be empty!
-                  </div>";
-        }
-        else{
-            $RatingBool = true;
-        }
-        if(strlen($Comments) == 0 || $Comments == ""){
-           echo "<div class = 'alert alert-danger' role = 'alert' id = 'ProductAlert'>
-                    There are missing data in the fields. All fields must not be empty!
-                  </div>";
-                
-        }
-        else{
-            $CommentsBool = true;
-        }
-        if($ProductChosen == 0){
-            echo "<div class = 'alert alert-danger' role = 'alert' id = 'ProductAlert'>
-                    There are missing data in the fields. All fields must not be empty!
-                  </div>";
-        }
-        else{
-            $ProductBool = true;
-        }
-        if($RatingBool && $CommentsBool && $ProductBool){
-            $Comments = trim($Comments, " \t.");
-            $InsertQuery = "INSERT INTO product_review(Rating, Review, Product_Id) VALUES('$Rating', '$Comments', '$ProductChosen')";
-            $InsertResult  = mysqli_query($link, $InsertQuery) or die (mysqli_error($link));
-            if(mysqli_affected_rows($link) > 0){
-                echo "<div class = 'alert alert-success' role = 'alert' id = 'ProductAlert'>
-                        Review Saved. Thank you for your co-operation!
-                      </div>";
+    if(isset($_SESSION["Username"])){
+        include "connect.php";
+        include "header.php";
+        $AccountEmail = $EmailAddress = $FullName = "";
+        $Username = $_SESSION["Username"];
+        $GetAccountId = "SELECT * FROM account";
+        $GetAccountIdResult = mysqli_query($link, $GetAccountId);
+        while($Account = mysqli_fetch_assoc($GetAccountIdResult)){
+            if(password_verify($Username, $Account["Username"])){
+                $AccountEmail =  $Account["Account_Id"];
             }
         }
+        $GetEmail = "SELECT * FROM user WHERE Account_Id = $AccountEmail";
+        $GetEmailResult = mysqli_query($link, $GetEmail);
+        while($Email = mysqli_fetch_assoc($GetEmailResult)){
+            $EmailAddress = $Email["Email_Address"];
+        }    
+
+        if(isset($_POST["WebsiteFeedbackBtn"])){
+            $RatingBool = $CommentsBool = false;
+            $Rating = $_POST["WebsiteFeedbackRating"];
+            $Comments = $_POST["WebsiteFeedbackTextArea"];
+            if($Rating == 0 || $Rating == ""){}
+            else{
+                $RatingBool = true;
+            }
+            if(strlen($Comments) == 0 || $Comments == ""){}
+            else{
+                $CommentsBool = true;
+            }
+
+            if(!$RatingBool && !$CommentsBool){
+                echo "<div class = 'alert alert-danger' role = 'alert' id = 'WebsiteAlert'>
+                        There are missing data in the fields. All fields must not be empty!
+                      </div>";
+            }
+
+            if($RatingBool && $CommentsBool){
+                $Comments = trim($Comments, " \t.");
+                $InsertQuery = "INSERT INTO website_review(Rating, Review) VALUES('$Rating', '$Comments')";
+                $InsertResult  = mysqli_query($link, $InsertQuery) or die (mysqli_error($link));
+                echo "<div class = 'alert alert-success' role = 'alert' id = 'WebsiteAlert'>
+                        Review Saved. Thank you for your co-operation!
+                      </div>"; 
+
+            }
+
+        }
+
+        if(isset($_POST["ProductFeedbackBtn"])){
+            $RatingBool = $CommentsBool = $ProductBool = false;
+            $Rating = $_POST["ProductFeedbackRating"];
+            $Comments = $_POST["ProductFeedbackTextArea"];
+            $ProductChosen = $_POST["ProductValues"];
+            if($Rating == 0 || $Rating == ""){
+                echo "<div class = 'alert alert-danger' role = 'alert' id = 'ProductAlert'>
+                        There are missing data in the fields. All fields must not be empty!
+                      </div>";
+            }
+            else{
+                $RatingBool = true;
+            }
+            if(strlen($Comments) == 0 || $Comments == ""){
+               echo "<div class = 'alert alert-danger' role = 'alert' id = 'ProductAlert'>
+                        There are missing data in the fields. All fields must not be empty!
+                      </div>";
+
+            }
+            else{
+                $CommentsBool = true;
+            }
+            if($ProductChosen == 0){
+                echo "<div class = 'alert alert-danger' role = 'alert' id = 'ProductAlert'>
+                        There are missing data in the fields. All fields must not be empty!
+                      </div>";
+            }
+            else{
+                $ProductBool = true;
+            }
+            if($RatingBool && $CommentsBool && $ProductBool){
+                $Comments = trim($Comments, " \t.");
+                $InsertQuery = "INSERT INTO product_review(Rating, Review, Product_Id) VALUES('$Rating', '$Comments', '$ProductChosen')";
+                $InsertResult  = mysqli_query($link, $InsertQuery) or die (mysqli_error($link));
+                if(mysqli_affected_rows($link) > 0){
+                    echo "<div class = 'alert alert-success' role = 'alert' id = 'ProductAlert'>
+                            Review Saved. Thank you for your co-operation!
+                          </div>";
+                }
+            }
+        }
+    }
+    else{
+        header("Location: index.php");
     }
 ?>
 
@@ -170,6 +175,7 @@
         </form>
         <img src = "http://www.nydailynews.com/resizer/XErINUWIVRZIEv1T0JxDbylFh68=/1400x0/arc-anglerfish-arc2-prod-tronc.s3.amazonaws.com/public/CNCRHBZAFTM75SSUHZ4UT4QFAM.jpg" alt = "Azteca Stadium" id = "BackgroundImage">
         <link type = "text/css" rel = "stylesheet" href="CSS/Feedback.css">
+        <script src = "Scripts/Feedback.js"></script>
         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
